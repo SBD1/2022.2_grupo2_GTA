@@ -1,18 +1,17 @@
 # Modelo Entidade-Relacionamento(ME-R)
 
 ## Entidades
-* Local
-    * Área
-    * Quadrado
+
+* Área
+* Quadrado
 * Instancia gangue inimiga
 * Instancia gangue aliada
-* Personagem 
-    * NPC 
-        * Policial 
-        * Membro de gangue
-            * Membro de gangue aliada
-            * Membro de gangue inimiga 
-    * Soldado 
+* Jogador 
+* NPC 
+    * Policial 
+    * Membro de gangue
+        * Membro de gangue aliada
+        * Membro de gangue inimiga 
 * Veiculo
 * Inventario    
 * Itens
@@ -90,4 +89,4 @@
 ## Histórico de versões
 |    Data    | Versão |                                       Descrição                                       |                 Autor(es)                           |  
 | :--------: | :----: | :-----------------------------------------------------------------------------------: | :-------------------------------------------------: | 
-| 20/11/2022 |  1.0   |                            Criação do esqueleto do arquivo                            |  Thiago, Lorenzo, Vinícius, Letícia, Lorenzo, Davi  |
+| 26/11/2022 |  1.0   |                            Criação do esqueleto do arquivo                            |  Thiago, Lorenzo, Vinícius, Letícia, Lorenzo, Davi  |
