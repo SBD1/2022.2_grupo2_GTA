@@ -27,9 +27,9 @@
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- | 
 | idQuadrado | Determinante | int | 3 | Identificação da quadrado. |
-| cordeladas | Simples | varchar | 10 | localização do quadrado. |
+| cordenadas | Simples | varchar | 10 | localização do quadrado. |
 | descrição | Simples | varchar | 50 | Detalhamento das características do Quadrado. |
-| clima | Simples  | varchar | 10 | Breve descrição de como se encontrar o tempo. |
+| clima | Simples  | varchar | 10 | Breve descrição de como se encontra o tempo. |
 
 ## Loja
 #### Local onde o personagem pode comprar itens.
@@ -70,7 +70,7 @@
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
 | idUtilitário | Determinante | int | 3 | Identificador do Utilitários. |
-| descrição | Simples  | varchar | 50 | Tipo da Arma. |
+| descrição | Simples  | varchar | 50 | Descreve a função do utilitário. |
 
 ## Droga 
 #### Item consumível.
@@ -96,7 +96,7 @@
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
 | idInventario | Determinante | int | 3 | Identificação do Inventario. |
-| capacidade | Simples | varchar | 5 | Quantidade de Items que o inventario pode ocupar. |
+| capacidade | Simples | varchar | 5 | Quantidade de Items que podem ocupar o inventario. |
 
 
 ## Tarefas
@@ -105,7 +105,7 @@
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
 | idTarefa | Determinante  | int | 3 | Identificação da Tarefa. |
-| descriçãoTarefa | Simples | varchar | 50 | Qual a tarefa que o Jogador tera que fazer. |
+| descriçãoTarefa | Simples | varchar | 50 | Descreve a tarefa. |
 
 
 ## NPC
@@ -163,14 +163,14 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
-| idMembroDeGangueInimiga | Simples  | int | 3 | Identificação do Membro de gangue inimiga. |
+| idInstanciaDeGangueAliada | Simples  | int | 3 | Identificação da instancia de gangue aliada. |
 
 ## Instancia de gangue inimiga 
 #### 
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
-| idMembroDeGangueInimiga | Simples  | int | 3 | Identificação do Membro de gangue inimiga. |
+| idInstanciaDeGangueInimiga | Simples  | int | 3 | Identificação da Instancia de gangue inimiga. |
 
 
 
@@ -181,3 +181,4 @@
 |    Data    | Versão |                                       Descrição                                       |                 Autor(es)                           |  
 | :--------: | :----: | :-----------------------------------------------------------------------------------: | :-------------------------------------------------: | 
 | 27/11/2022 |  1.0   |                            Criação do esqueleto do arquivo                            |  Thiago, Lorenzo, Vinícius, Letícia, Lorenzo, Davi  |
+| 27/11/2022 |  1.1   |                            Correções                            |  Thiago, Lorenzo, Vinícius, Letícia, Lorenzo, Davi  |
