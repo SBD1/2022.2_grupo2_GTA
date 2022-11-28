@@ -140,7 +140,7 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
-| idPolicial | Simples  | int | 3 | Identificação do Policial. |
+| idPolicial | Determinante  | int | 3 | Identificação do Policial. |
 
 
 ## Membro de gangue aliada 
@@ -148,7 +148,7 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
-| idMembroDeGangueAliada | Simples  | int | 3 | Identificação do Membro de gangue aliada. |
+| idMembroDeGangueAliada | Determinante  | int | 3 | Identificação do Membro de gangue aliada. |
 
 
 ## Membro de gangue aliada 
@@ -156,21 +156,21 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
-| idMembroDeGangueInimiga | Simples  | int | 3 | Identificação do Membro de gangue inimiga. |
+| idMembroDeGangueInimiga | Determinante  | int | 3 | Identificação do Membro de gangue inimiga. |
 
 ## Instancia de gangue aliada 
-####
+#### Instancia uma gangue aliada 
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
-| idInstanciaDeGangueAliada | Simples  | int | 3 | Identificação da instancia de gangue aliada. |
+| idInstanciaDeGangueAliada | Determinante  | int | 3 | Identificação da instancia de gangue aliada. |
 
 ## Instancia de gangue inimiga 
-#### 
+#### Instancia uma gangue inimiga 
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
-| idInstanciaDeGangueInimiga | Simples  | int | 3 | Identificação da Instancia de gangue inimiga. |
+| idInstanciaDeGangueInimiga | Determinante  | int | 3 | Identificação da Instancia de gangue inimiga. |
 
 
 
@@ -181,4 +181,5 @@
 |    Data    | Versão |                                       Descrição                                       |                 Autor(es)                           |  
 | :--------: | :----: | :-----------------------------------------------------------------------------------: | :-------------------------------------------------: | 
 | 27/11/2022 |  1.0   |                            Criação do esqueleto do arquivo                            |  Thiago, Lorenzo, Vinícius, Letícia, Lorenzo, Davi  |
+| 27/11/2022 |  1.1   |                            Correções                            |  Thiago, Lorenzo, Vinícius, Letícia, Lorenzo, Davi  |
 | 27/11/2022 |  1.1   |                            Correções                            |  Thiago, Lorenzo, Vinícius, Letícia, Lorenzo, Davi  |
