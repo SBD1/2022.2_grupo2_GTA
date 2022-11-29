@@ -172,12 +172,15 @@
 
 ## Grupamento de Gangue Aliada
 #### Conjunto de gangue aliada 
+|Atributo| Classe| Tipo | Tamanho | Descrição|
+| ---- | ---- | ---- | ---- | ---- |  
 | idnomegangue | Determinante  | varchar | 50 | Identificação da gangue aliada. |
 | NroMembros | simples  | int | 3 | quantidade de integrantes da gangue aliada |
 
 
 ## Grupamento de Gangue Inimiga
 #### Conjunto de gangue inimiga 
+|Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
 | idnomegangue | Determinante  | varchar | 50 | Identificação da gangue inimiga. |
 | NroMembros | simples  | int | 3 | quantidade de integrantes da gangue inimiga |
