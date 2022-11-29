@@ -15,10 +15,10 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- | 
-| idJogador | Determinante | int | 3 | Identificação do Jogador. |
+| idPersonagem | Determinante | int | 3 | Identificação do Jogador. |
 | nome | Simples | varchar | 30 |  Nome do Jogador. |
 | vida | Simples | int | 10 | Pontos de vida do Jogador. |
-| dinheiro | Simples | int | 100 | Nickname do Jogador. |
+| dinheiro | Simples | int | 100 | valor do Jogador usado na loja. |
 
 
 ## Quadrado
@@ -26,8 +26,7 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- | 
-| idQuadrado | Determinante | int | 3 | Identificação da quadrado. |
-| cordenadas | Simples | varchar | 10 | localização do quadrado. |
+| cordenadas | Determinante | varchar | 10 | Localização do quadrado. |
 | descrição | Simples | varchar | 50 | Detalhamento das características do Quadrado. |
 | clima | Simples  | varchar | 10 | Breve descrição de como se encontra o tempo. |
 
@@ -36,13 +35,12 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- | 
-| idLoja | Determinante | int | 3 | Identificação da Loja. |
-| nome | Simples   | varchar | 20 | Nome atribuído a Loja. |
+| nome | Determinante   | varchar | 20 | Nome atribuído a Loja. |
 | estoque | Simples | varchar | 20 | Quantidade de Items que a loja possui. |
 | descrição | Simples | varchar | 20 | Quais Items a Loja possui. |
 
 
-## Itens
+## Item
 #### Objetos com que o personagem pode interagir.
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
@@ -58,7 +56,6 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
-| idArma | Determinante | int | 3 | Identificador da habilidade da Arma. |
 | qtdDano | Simples   | int | 10 | Quantidade de dano que a Arma causa. |
 | qtdBalas | Simples   | int | 30 | Capacidade de armazenamento da arma. |
 | txDisparo | Simples   | int | 10 | Cadencia ou frequência de dano causado. |
@@ -77,7 +74,6 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
-| idDroga | Determinante | int | 3 | Identificador da Droga. |
 | vantagem | Simples   | varchar | 30 | Adiciona uma vantagem ao Jogador. |
 | desvantagem | Simples   | varchar | 30 | Adiciona uma desvantagem ao Jogador. |
 
@@ -86,7 +82,6 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
-| idComida | Determinante | int | 3 | Identificador da Droga. |
 | txRecuperaçãoVida | Simples | int | 10 | Quantidade de pontos de vida a ser recuperado. |
 
 
@@ -104,8 +99,10 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
-| idTarefa | Determinante  | int | 3 | Identificação da Tarefa. |
-| descriçãoTarefa | Simples | varchar | 50 | Descreve a tarefa. |
+| nome | Determinante  | int | 3 | Identificação da Tarefa. |
+| objetivo | Simples | varchar | 50 | Descreve a tarefa. |
+| dificuldade | Simples | int | 5 | nível de dificuldade. |
+| XP | Simples | int | 10 | quantidade de pontos de experiência. |
 
 
 ## NPC
@@ -140,7 +137,7 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
-| idPolicial | Determinante  | int | 3 | Identificação do Policial. |
+| tipoArmaEquipada | simples  | varchar | 20 |Categoriza arma. |
 
 
 ## Membro de gangue aliada 
@@ -163,23 +160,32 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
-| idInstanciaDeGangueAliada | Determinante  | int | 3 | Identificação da instancia de gangue aliada. |
+| idInstanciaAliado | Determinante  | int | 3 | Identificação da instancia de gangue aliada. |
 
 ## Instancia de gangue inimiga 
 #### Instancia uma gangue inimiga 
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
-| idInstanciaDeGangueInimiga | Determinante  | int | 3 | Identificação da Instancia de gangue inimiga. |
+| idInstanciaInimigo | Determinante  | int | 3 | Identificação da Instancia de gangue inimiga. |
 
 
+## Grupamento de Gangue Aliada
+#### Conjunto de gangue aliada 
+| idnomegangue | Determinante  | varchar | 50 | Identificação da gangue aliada. |
+| NroMembros | simples  | int | 3 | quantidade de integrantes da gangue aliada |
 
 
-
+## Grupamento de Gangue Inimiga
+#### Conjunto de gangue inimiga 
+| ---- | ---- | ---- | ---- | ---- |  
+| idnomegangue | Determinante  | varchar | 50 | Identificação da gangue inimiga. |
+| NroMembros | simples  | int | 3 | quantidade de integrantes da gangue inimiga |
 
 ## Histórico de versões
 |    Data    | Versão |                                       Descrição                                       |                 Autor(es)                           |  
 | :--------: | :----: | :-----------------------------------------------------------------------------------: | :-------------------------------------------------: | 
 | 27/11/2022 |  1.0   |                            Criação do esqueleto do arquivo                            |  Thiago, Lorenzo, Vinícius, Letícia, Lorenzo, Davi  |
 | 27/11/2022 |  1.1   |                            Correções                            |  Thiago, Lorenzo, Vinícius, Letícia, Lorenzo, Davi  |
-| 27/11/2022 |  1.1   |                            Correções                            |  Thiago, Lorenzo, Vinícius, Letícia, Lorenzo, Davi  |
+| 27/11/2022 |  1.2   |                            Correções                            |  Thiago, Lorenzo, Vinícius, Letícia, Lorenzo, Davi  |
+| 28/11/2022 |  1.3   |                            Correções                            |  Thiago, Lorenzo, Vinícius, Letícia, Lorenzo, Davi  |
