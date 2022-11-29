@@ -148,26 +148,12 @@
 | idMembroDeGangueAliada | Determinante  | int | 3 | Identificação do Membro de gangue aliada. |
 
 
-## Membro de gangue aliada 
+## Membro de gangue inimiga
 #### Personagens não jogável que faz parte de uma gangue inimiga.
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
 | idMembroDeGangueInimiga | Determinante  | int | 3 | Identificação do Membro de gangue inimiga. |
-
-## Instancia de gangue aliada 
-#### Instancia uma gangue aliada 
-
-|Atributo| Classe| Tipo | Tamanho | Descrição|
-| ---- | ---- | ---- | ---- | ---- |  
-| idInstanciaAliado | Determinante  | int | 3 | Identificação da instancia de gangue aliada. |
-
-## Instancia de gangue inimiga 
-#### Instancia uma gangue inimiga 
-
-|Atributo| Classe| Tipo | Tamanho | Descrição|
-| ---- | ---- | ---- | ---- | ---- |  
-| idInstanciaInimigo | Determinante  | int | 3 | Identificação da Instancia de gangue inimiga. |
 
 
 ## Grupamento de Gangue Aliada
@@ -192,3 +178,4 @@
 | 27/11/2022 |  1.1   |                            Correções                            |  Thiago, Lorenzo, Vinícius, Letícia, Lorenzo, Davi  |
 | 27/11/2022 |  1.2   |                            Correções                            |  Thiago, Lorenzo, Vinícius, Letícia, Lorenzo, Davi  |
 | 28/11/2022 |  1.3   |                            Correções                            |  Thiago, Lorenzo, Vinícius, Letícia, Lorenzo, Davi  |
+| 28/11/2022 |  1.4   |                            Correções                            |  Thiago, Lorenzo, Vinícius, Letícia, Lorenzo, Davi  |
