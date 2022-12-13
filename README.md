@@ -21,9 +21,9 @@ O presente repositório tem como objetivo o desenvolvimento de um jogo inspirado
 ## Entregas
 
 - Módulo 1
-  - [DER](DE-R_2.0.png)
+  - [DER](docs/DER.md)
   - [Dicionário de Dados](Dicionario.md)
-  - [Modelo Relacional](https://github.com/SBD1/2022.2_grupo2_GTA/blob/26dac8488b243c1c9de42e926fb31e58b946fa1e/Modelo%20relacional.png)
+  - [Modelo Relacional](docs/MREL.md)
 
 ## Colaboradores
 
