@@ -14,3 +14,7 @@
   ## Primeira Versão
   
   ![DE-R_2 0_1](https://user-images.githubusercontent.com/72623771/207428956-d638ae93-15a1-4b3f-9c3a-eec15d5f8bf1.png)
+
+  ## Segunda Versão
+  
+  ![DE-R_2 0_2](assets/DER-atualizado.jpeg)
