@@ -17,4 +17,4 @@
 
   ## Segunda Versão
   
-  ![image](assets/DER-atualizado.jpeg)
+  ![image2](assets/DER_GTA_Att.png)
