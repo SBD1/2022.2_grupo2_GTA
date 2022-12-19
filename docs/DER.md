@@ -8,7 +8,7 @@
   
   # Diagrama Entidade Relacionamento (DER)
   
-  ![image](https://user-images.githubusercontent.com/72623771/207429214-bde1655c-0458-4208-8b6a-711b4b374db0.png)
+![image](https://user-images.githubusercontent.com/72623771/208414928-913bf75e-fad7-4059-98c0-435df83b5c8b.png)
   
   # Versões Anteriores
   ## Primeira Versão
