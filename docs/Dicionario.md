@@ -97,7 +97,7 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
-| idMembroDeGangueAliada | Determinante  | int | 3 | Identificação do Membro de gangue aliada. |
+| tipoAliado | Determinante  | int | 3 | Identificação do Membro de gangue aliada. |
 
 
 ## Membro de gangue inimiga
@@ -105,7 +105,7 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
-| idMembroDeGangueInimiga | Determinante  | int | 3 | Identificação do Membro de gangue inimiga. |
+| tipoInimigo | Determinante  | int | 3 | Identificação do Membro de gangue inimiga. |
 
 
 ## Policial
@@ -113,7 +113,7 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
-| tipoArmaEquipada | simples  | varchar | 20 |Categoriza arma. |
+| idPolicial | simples  | varchar | 20 |Categoriza arma. |
 
 
 ## NPC
@@ -158,6 +158,7 @@
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
 | idInstaciaVeiculo | Determinante  | int | 3 | Identificação da instância do veículo. |
+| idVeiculo | Determinante  | int | 3 | Identificação do veículo. |
 
 
 ## Histórico de versões
