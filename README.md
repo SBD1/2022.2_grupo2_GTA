@@ -22,8 +22,9 @@ O presente repositório tem como objetivo o desenvolvimento de um jogo inspirado
 
 - Módulo 1
   - [DER](docs/DER.md)
-  - [Dicionário de Dados](Dicionario.md)
+  - [Dicionário de Dados](docs/Dicionario.md)
   - [Modelo Relacional](docs/MREL.md)
+  - [Modelo Entidade Relacionamento](docs/MER.md)
 
 ## Colaboradores
 
