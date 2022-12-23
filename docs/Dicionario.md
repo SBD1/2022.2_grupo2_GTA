@@ -14,6 +14,8 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
+| tipo | Simples   | varchar | 20 | Qual o modelo da arma utilizada. |
+| descricao | Simples   | varchar | 50 | Detalhamento das características da arma. |
 | qtdDano | Simples   | int | 10 | Quantidade de dano que a Arma causa. |
 | qtdBalas | Simples   | int | 30 | Capacidade de armazenamento da arma. |
 
@@ -23,6 +25,8 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
+| tipo | Simples | varchar | 20 | Qual o tipo de comida a ser utilizada. |
+| descricao | Simples | varchar | 50 | Detalhamento das características da comida. |
 | txRecuperaçãoVida | Simples | int | 10 | Quantidade de pontos de vida a ser recuperado. |
 
 
@@ -31,6 +35,8 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
+| tipo | Simples | varchar | 20 | Qual o tipo de droga a ser utilizada. |
+| descricao | Simples | varchar | 50 | Detalhamento das características da droga. |
 | vantagem | Simples   | varchar | 30 | Adiciona uma vantagem ao Jogador. |
 | desvantagem | Simples   | varchar | 30 | Adiciona uma desvantagem ao Jogador. |
 
@@ -122,7 +128,7 @@
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |   
 | idNPC | Determinante  | int | 3 | Identificação do NPC.  |
-| vida | Simples | varchar | 10 | Quantidade de vida que o NPC possui. |
+| vida | Simples | int | 10 | Quantidade de vida que o NPC possui. |
 
 
 ## Tarefas
@@ -170,3 +176,4 @@
 | 28/11/2022 |  1.3   |                            Correções                            |  Thiago, Lorenzo, Vinícius, Letícia, Lorenzo, Davi  |
 | 28/11/2022 |  1.4   |                            Correções                            |  Thiago, Lorenzo, Vinícius, Letícia, Lorenzo, Davi  |
 | 14/12/2022 |  1.5   |                            Atualização para o novo DER                            |  Vinícius  |
+| 23/12/2022 |  1.5   |                            Atualização para o novo DER e MER                            |  Vinícius  |
