@@ -8,12 +8,14 @@
  
  <div align="center">
   
-  # Modelo Relacional (MREL) Ver 2.0
+   
+ # Modelo Relacional (MREL) 1.0
+ 
+  ![Modelo relacional_1](https://user-images.githubusercontent.com/72623771/207430241-b25e595b-4161-45e2-ad24-6d215143730a.png)
+  
+ # Modelo Relacional (MREL) 2.0
  
  ![Modelo relacional drawio](https://user-images.githubusercontent.com/65683663/209355226-d6ab2753-ee22-4519-bcbf-d44abb3e73d1.png)
- 
- # Modelo Relacional (MREL) Ver 1.0
-  
-  ![Modelo relacional_1](https://user-images.githubusercontent.com/72623771/207430241-b25e595b-4161-45e2-ad24-6d215143730a.png)
 
+ 
 </div>
