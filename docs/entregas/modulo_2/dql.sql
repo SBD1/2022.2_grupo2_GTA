@@ -1,0 +1,1 @@
+/* dql - linguagem de consulta de dados */
