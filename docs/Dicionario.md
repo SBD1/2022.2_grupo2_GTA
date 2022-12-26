@@ -69,8 +69,8 @@
 | ---- | ---- | ---- | ---- | ---- | 
 | idPersonagem | Determinante | int | 3 | Identificação do Jogador. |
 | nome | Simples | varchar | 30 |  Nome do Jogador. |
-| pontosVida | Simples | int | 10 | Pontos de vida do Jogador. |
-
+| pontosVida | Simples | int | 100 | Pontos de vida do Jogador. |
+| experiencia | Simples | int | 100 | Pontos de vida do Jogador. |
 
 ## Loja
 #### Local onde o personagem pode comprar itens.
