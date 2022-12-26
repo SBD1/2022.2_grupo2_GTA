@@ -8,7 +8,8 @@
   
   # Diagrama Entidade Relacionamento (DER)
   
-![image](https://user-images.githubusercontent.com/72623771/208414928-913bf75e-fad7-4059-98c0-435df83b5c8b.png)
+![DER GTA drawio (3)](https://user-images.githubusercontent.com/72623771/209588656-934a8ee9-6a2a-4665-92c1-3ba22aea2225.png)
+
   
   # Versões Anteriores
   ## Primeira Versão
