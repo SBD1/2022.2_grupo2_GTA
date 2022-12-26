@@ -14,6 +14,7 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
+| idItem | Determinante | int | 3 | Identificação do item. |
 | tipo | Simples   | varchar | 20 | Qual o modelo da arma utilizada. |
 | descricao | Simples   | varchar | 50 | Detalhamento das características da arma. |
 | qtdDano | Simples   | int | 10 | Quantidade de dano que a Arma causa. |
@@ -24,7 +25,8 @@
 #### Item consumível que cura o personagem.
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
-| ---- | ---- | ---- | ---- | ---- |  
+| ---- | ---- | ---- | ---- | ---- |
+| idItem | Determinante | int | 3 | Identificação do item. |
 | tipo | Simples | varchar | 20 | Qual o tipo de comida a ser utilizada. |
 | descricao | Simples | varchar | 50 | Detalhamento das características da comida. |
 | txRecuperaçãoVida | Simples | int | 10 | Quantidade de pontos de vida a ser recuperado. |
@@ -35,6 +37,7 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
+| idItem | Determinante | int | 3 | Identificação do item. |
 | tipo | Simples | varchar | 20 | Qual o tipo de droga a ser utilizada. |
 | descricao | Simples | varchar | 50 | Detalhamento das características da droga. |
 | vantagem | Simples   | varchar | 30 | Adiciona uma vantagem ao Jogador. |
@@ -46,8 +49,7 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
-| idPersonagem | Determinante | int | 3 | Identificação do Personagem dono do inventário. |
-| capacidade | Simples | varchar | 5 | Quantidade de Items que podem ocupar o inventario. |
+| idInventário | Determinante | int | 3 | Identificação do inventário. |
 | dinheiro | Simples | int | 100 | valor que pode ser usado nas lojas. |
 
 
@@ -57,7 +59,7 @@
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- | 
 | idItem | Determinante | int | 3 | Identificador do Item. |
-| descrição | Simples  | varchar | 20 | Descreve o item. |
+| descrição | Simples  | varchar | 50 | Descreve o item. |
 | usado | Simples | int | 100 |  |
 | tipo | Simples | varchar | 20 | Qual especificação do Item. |
 
@@ -67,18 +69,18 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- | 
-| idPersonagem | Determinante | int | 3 | Identificação do Jogador. |
+| idJogador | Determinante | int | 3 | Identificação do Jogador. |
 | nome | Simples | varchar | 30 |  Nome do Jogador. |
-| pontosVida | Simples | int | 100 | Pontos de vida do Jogador. |
-| experiencia | Simples | int | 100 | Pontos de vida do Jogador. |
+| vida | Simples | int | 100 | Pontos de vida do Jogador. |
+| xp | Simples | int | 100 | Pontos de experiência do Jogador. |
 
 ## Loja
 #### Local onde o personagem pode comprar itens.
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- | 
-| nome | Determinante   | varchar | 20 | Nome atribuído a Loja. |
-| descrição | Simples | varchar | 20 | Descreve o propósito da loja. |
+| nomeLoja | Determinante   | varchar | 20 | Nome atribuído a Loja. |
+| descrição | Simples | varchar | 50 | Descreve o propósito da loja. |
 | estoque | Simples | varchar | 20 | Lista de Items que a loja possui. |
 
 
@@ -119,7 +121,8 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
-| idPolicial | simples  | varchar | 20 |Categoriza arma. |
+| idPolicial | simples  | int | 3 | Identificação de policial |
+| tipo | simples  | varchar | 10 | dificuldade em que o policial se encontra  |
 
 
 ## NPC
@@ -131,14 +134,15 @@
 | vida | Simples | int | 10 | Quantidade de vida que o NPC possui. |
 
 
-## Tarefas
+## Tarefa
 #### Favores que o Jogador pode realizar para se relacionar com uma Gangue.
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
-| nome | Determinante  | int | 3 | Identificação da Tarefa. |
+| nomeTarefa | Determinante  | varchar | 20 | Identificação da Tarefa. |
 | objetivo | Simples | varchar | 50 | Descreve a tarefa. |
 | dificuldade | Simples | int | 5 | nível de dificuldade. |
+
 
 
 ## Veiculo
@@ -148,9 +152,7 @@
 | ---- | ---- | ---- | ---- | ---- |  
 | idVeiculo | Determinante  | int | 3 | Identificação do Veiculo. |
 | tipo | Simples  | varchar | 20 | Tipo do Veiculo. |
-| integridadeFísica | Simples  | int | 10 | Estado em que o carro se encontra. |
 | velocidadeMax | Simples  | int | 10 | Rapidez em que o Veiculo se locomove. |
-
 
 ## Instância de item
 #### Uma unidade de um item
