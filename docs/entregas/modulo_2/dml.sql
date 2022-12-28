@@ -4,7 +4,7 @@ INSERT INTO item (idItem, descricao, usado, tipo)
 VALUES
 (1,'Bebida ForLife',100,'aumenta a vida do jogador'),
 (2,'Drink and Kill',100,'aumenta o dano da arma do jogador'),
-(3,'Bebida Feliz para sempre',100,'aumenta a vida do jogador'),
+(3,'Bebida Feliz para sempre',100,'aumenta a vida do jogador');
 
 INSERT INTO jogador(idPersonagem, nome, pontosVida, experiencia)
 VALUES
@@ -91,41 +91,47 @@ VALUES
 (4,'base militar'),
 (5,'Hospital da cidade');
 
-INSERT INTO membro_de_gangue(idMmebroDeGangue)
+INSERT INTO veiculo(idVeiculo, tipo, integridadeFisica, velocidadeMax)
 VALUES
-()
+(1,'bicicleta',20,4),
+(2,'moto',40,10),
+(3,'carro',60,8),
+(4,'helicoptero',70,9),
+(5,'blindado',100,5);
+
 
 INSERT INTO membro_de_gangue_aliada(tipoAliado)
 VALUES
-()
+(100),
+(101),
+(102);
 
 INSERT INTO membro_de_gangue_inimiga(tipoInimigo)
 VALUES
-()
+(200),
+(201),
+(202);
 
 INSERT INTO policial(idPolicial)
 VALUES
-()
+(300),
+(301),
+(302);
 
 INSERT INTO npc(idNPC, vida)
 VALUES
-()
+(100, 100),
+(101, 100),
+(102, 100),
+(200, 100),
+(201, 100),
+(202, 100),
+(300, 100),
+(301, 100),
+(302, 100);
 
-INSERT INTO tarefas(nome,objetivo,dificuldade)
+INSERT INTO tarefa(nome,idJogador,idNPC,objetivo,dificuldade)
 VALUES
-()
-
-INSERT INTO veiculo(idVeiculo, tipo, integridadeFisica, velocidadeMax)
-VALUES
-()
-
-INSERT INTO veiculo(idVeiculo, tipo, integridadeFisica, velocidadeMax)
-VALUES
-()
-
-
-
-
-
-
-
+('primeiros passos',1,100,'consiga uma bicicleta',1),
+('perigo à sociedade',2,101,'adquira uma arma de fogo',2),
+('limpando o caixa',3,102,'roube a loja Chill and Buy',3),
