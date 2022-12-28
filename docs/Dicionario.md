@@ -6,6 +6,8 @@
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
 | idArea | Determinante  | int | 3 | Identificação da área. |
+| idVeiculo | Determinante  | int | 3 | Chave estrangeira para o veículo presente na área. |
+| idNPC | Determinante  | int | 3 | Chave estrangeira para o NPC presente na área. |
 | descrição | Simples  | varchar | 50 | Detalhamento das características da área. |
 
 
@@ -80,6 +82,8 @@
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- | 
 | nomeLoja | Determinante   | varchar | 20 | Nome atribuído a Loja. |
+| idArea | Determinante  | int | 3 | Chave estrangeira para a área. |
+| idItem| Determinante  | int | 3 | Chave estrangeira para o item. |
 | descrição | Simples | varchar | 50 | Descreve o propósito da loja. |
 | estoque | Simples | varchar | 20 | Lista de Items que a loja possui. |
 
@@ -89,15 +93,8 @@
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
 | idMapa | Determinante  | int | 3 | Identificação do mapa. |
+| idArea | Determinante  | int | 3 | Chave estrangeira para a Área. |
 | descrição | Simples  | varchar | 50 | Detalhamento das características do mapa. |
-
-
-## Membro de gangue
-#### Personagens não jogável que faz parte de uma gangue.
-
-|Atributo| Classe| Tipo | Tamanho | Descrição|
-| ---- | ---- | ---- | ---- | ---- |  
-| idMembroDeGangue | Determinante  | int | 3 | Identificação do Membro de gangue. |
 
 
 ## Membro de gangue aliada 
@@ -105,15 +102,17 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
-| tipoAliado | Determinante  | int | 3 | Identificação do Membro de gangue aliada. |
+| idNPC | Determinante  | int | 3 | Chave estrangeira para o NPC. |
+| tipoAliado | Simples  | int | 3 | Identificação como membro de gangue aliada. |
 
 
 ## Membro de gangue inimiga
 #### Personagens não jogável que faz parte de uma gangue inimiga.
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
-| ---- | ---- | ---- | ---- | ---- |  
-| tipoInimigo | Determinante  | int | 3 | Identificação do Membro de gangue inimiga. |
+| ---- | ---- | ---- | ---- | ---- |
+| idNPC | Determinante  | int | 3 | Chave estrangeira para o NPC. |
+| tipoInimigo | Simples  | int | 3 | Identificação como membro de gangue inimiga. |
 
 
 ## Policial
@@ -121,8 +120,8 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
-| idPolicial | simples  | int | 3 | Identificação de policial |
-| tipo | simples  | varchar | 10 | dificuldade em que o policial se encontra  |
+| idNPC | simples  | int | 3 | Chave estrangeira para o NPC. |
+| tipo | simples  | varchar | 10 | nível de dificuldade do policial. |
 
 
 ## NPC
@@ -139,10 +138,11 @@
 
 |Atributo| Classe| Tipo | Tamanho | Descrição|
 | ---- | ---- | ---- | ---- | ---- |  
-| nomeTarefa | Determinante  | varchar | 20 | Identificação da Tarefa. |
+| nomeTarefa | Determinante | varchar | 20 | Identificação da Tarefa. |
+| idJogador | Determinante | int | 3 | Identificação do jogador que pegou a tarefa. |
+| idNPC | Determinante | int | 3 | Identificação do NPC que delegou a tarefa. |
 | objetivo | Simples | varchar | 50 | Descreve a tarefa. |
 | dificuldade | Simples | int | 5 | nível de dificuldade. |
-
 
 
 ## Veiculo
@@ -153,6 +153,17 @@
 | idVeiculo | Determinante  | int | 3 | Identificação do Veiculo. |
 | tipo | Simples  | varchar | 20 | Tipo do Veiculo. |
 | velocidadeMax | Simples  | int | 10 | Rapidez em que o Veiculo se locomove. |
+
+## Item
+#### Um item utilizável pelo usuário
+|Atributo| Classe| Tipo | Tamanho | Descrição|
+| ---- | ---- | ---- | ---- | ---- |  
+| idItem | Determinante  | int | 3 | Identificação do item. |
+| idInventario | Determinante  | int | 3 | Chave estrangeira para o inventário. |
+| usado | Simples  | boolean | 1 | Indica se o item está usado ou não. |
+| tipo | Simples  | varchar | 10 | Tipo do item, ex: arma, comida, etc. |
+| descricao | Simples  | int | 3 | Descreve o item. |
+
 
 ## Instância de item
 #### Uma unidade de um item
@@ -170,12 +181,13 @@
 
 
 ## Histórico de versões
-|    Data    | Versão |                                       Descrição                                       |                 Autor(es)                           |  
-| :--------: | :----: | :-----------------------------------------------------------------------------------: | :-------------------------------------------------: | 
-| 27/11/2022 |  1.0   |                            Criação do esqueleto do arquivo                            |  Thiago, Lorenzo, Vinícius, Letícia, Lorenzo, Davi  |
-| 27/11/2022 |  1.1   |                            Correções                            |  Thiago, Lorenzo, Vinícius, Letícia, Lorenzo, Davi  |
-| 27/11/2022 |  1.2   |                            Correções                            |  Thiago, Lorenzo, Vinícius, Letícia, Lorenzo, Davi  |
-| 28/11/2022 |  1.3   |                            Correções                            |  Thiago, Lorenzo, Vinícius, Letícia, Lorenzo, Davi  |
-| 28/11/2022 |  1.4   |                            Correções                            |  Thiago, Lorenzo, Vinícius, Letícia, Lorenzo, Davi  |
-| 14/12/2022 |  1.5   |                            Atualização para o novo DER                            |  Vinícius  |
-| 23/12/2022 |  1.5   |                            Atualização para o novo DER e MER                            |  Vinícius  |
+|    Data    | Versão |             Descrição               | Autor(es) |  
+| :--------: | :----: | :---------------------------------: | :-------: | 
+| 27/11/2022 |  1.0   | Criação do esqueleto do arquivo     |  Todos    |
+| 27/11/2022 |  1.1   | Correções                           |  Todos    |
+| 27/11/2022 |  1.2   | Correções                           |  Todos    |
+| 28/11/2022 |  1.3   | Correções                           |  Todos    |
+| 28/11/2022 |  1.4   | Correções                           |  Todos    |
+| 14/12/2022 |  1.5   | Atualização para o novo DER         |  Vinícius |
+| 23/12/2022 |  1.5   | Atualização para o novo DER e MER   |  Vinícius |
+| 28/12/2022 |  1.6   | Atualização para o novo MREL        |  Vinícius |
