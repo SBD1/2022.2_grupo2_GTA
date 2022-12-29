@@ -1,7 +1,11 @@
-SELECT descricao FROM Mapa;
---> Buscar descrição do mapa
+--Area
 
 SELECT descricao FROM Area;
+--> Buscar descrição do mapa
+
+--Mapa
+
+SELECT descricao FROM Mapa;
 --> Buscar descrição do mapa
 
 SELECT * FROM Mapa;
@@ -10,8 +14,17 @@ SELECT * FROM Mapa;
 SELECT * from Mapa where idMapa = 1;
 --> Marca o span inicial
 
+--Membro de gangue inimiga;
+
 SELECT VIDA FROM Membro de gangue inimiga;
 --> Buscar vida do  Membro de gangue inimiga;
+
+--Membro de gangue aliada;
+
+SELECT VIDA FROM Membro de gangue aliada;
+--> Buscar vida do  Membro de gangue aliada;
+
+--Jogador 
 
 SELECT VIDA FROM jogador;
 --> Buscar vida do jogador;
@@ -25,6 +38,8 @@ SELECT nome FROM jogador;
 SELECT * FROM jogador;
 --> Buscar todos os atributos dos jogadores;
 
+-- Tarefa 
+
 SELECT * FROM Tarefa;
 --> Buscar todos os atributos da tarefa;
 
@@ -37,6 +52,8 @@ SELECT objetivo FROM Tarefa;
 SELECT xp FROM Tarefa;
 --> Buscar quantidade de xp que a tarefa entrega;
 
+
+-- Loja 
 SELECT * FROM Loja;
 --> Buscar todos os atributos da loja;
 
@@ -48,6 +65,8 @@ SELECT estoque FROM Loja;
 
 SELECT descricao FROM Loja;
 --> Buscar a descricao da Loja;
+
+-- Item
 
 SELECT * FROM Item;
 --> Buscar todos os atributos do Item;
