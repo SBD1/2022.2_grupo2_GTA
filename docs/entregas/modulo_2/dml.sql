@@ -83,13 +83,17 @@ VALUES
 (6,'60'),
 (7,'70');
 
-INSERT INTO mapa(idMapa, descricao)
+INSERT INTO mapa(idMapa, descricao, coordenadaX, coordenadaY)
 VALUES
-(1,'centro da cidade'),
-(2,'rua da sua casa'),
-(3,'região do morro mal assombrado'),
-(4,'base militar'),
-(5,'Hospital da cidade');
+(1,'centro da cidade',1,1),
+(2,'rua da sua casa',2,1),
+(3,'região do morro mal assombrado',2,2),
+(4,'base militar',0,0),
+(5,'Hospital da cidade',1,0),
+(6,'Aeroporto',0,1),
+(7,'zona comercial',1,2),
+(8,'Morro da favela',2,0),
+(9,'Praia',0,2);
 
 INSERT INTO veiculo(idVeiculo, tipo, integridadeFisica, velocidadeMax)
 VALUES
