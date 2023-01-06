@@ -2,9 +2,9 @@
 
   |Data|Versão|Alteração|Autor| 
   |----|------|---------|-----|
-  |28/11/2022|0.1|Primeira versão da modelagem DER |Letícia, Thiago, Davi, Vinícius e Lorenzo|
-  |12/12/2022|0.2|Segunda versão da modelagem DER |Letícia|
-  |19/12/2022|0.3|Adição de cardinalidade e outras correções da modelagem DER |Thiago e Davi|
+  |28/11/2022|1.1|Primeira versão da modelagem DER |Letícia, Thiago, Davi, Vinícius e Lorenzo|
+  |12/12/2022|1.2|Segunda versão da modelagem DER |Letícia|
+  |19/12/2022|1.3|Adição de cardinalidade e outras correções da modelagem DER |Thiago e Davi|
   
   # Diagrama Entidade Relacionamento (DER)
   
