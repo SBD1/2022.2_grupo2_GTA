@@ -8,6 +8,7 @@
   |11/01/2023|3.0| Correções | Lorenzo |
  
  <div align="center">
+  
   # Modelo Relacional (MREL) 3.0 (Atual)
   
  ![Modelo relacional drawio](https://user-images.githubusercontent.com/54644579/212223390-ae620126-00ef-4bac-b135-e4c8a40a894b.png)
