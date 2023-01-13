@@ -10,6 +10,8 @@
   # Diagrama Entidade Relacionamento (DER)
   
   ![DER_3](https://user-images.githubusercontent.com/54644579/212221727-ca4ebaf3-dfe4-498a-83ea-fd8f7ec608ef.png)
+
+  
   
   # Versões Anteriores
   ## Primeira Versão

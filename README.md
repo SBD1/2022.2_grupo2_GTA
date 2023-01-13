@@ -16,14 +16,21 @@ O presente repositório tem como objetivo o desenvolvimento de um jogo inspirado
 
 ## Apresentações
 
-[Apresentação do Módulo 1](https://www.youtube.com/watch?v=M9dlhzvS_Gk)
+[Apresentação do Módulo 1](https://www.youtube.com/watch?v=M9dlhzvS_Gk) <br>
+[Apresentação do Módulo 2](link aqui)
 
 ## Entregas
 
 - Módulo 1
   - [DER](docs/DER.md)
-  - [Dicionário de Dados](Dicionario.md)
+  - [Dicionário de Dados](docs/Dicionario.md)
   - [Modelo Relacional](docs/MREL.md)
+  - [Modelo Entidade Relacionamento](docs/MER.md)
+  
+- Módulo 2
+   - [DDL](docs/DDL.md)
+   - [DQL](docs/DQL.md) 
+   - [DML](docs/DML.md)
 
 ## Colaboradores
 
