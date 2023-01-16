@@ -1,7 +1,7 @@
-|Data|Versão|Alteração|Autor| 
-|----|------|---------|-----|
-19/12/2022|0.1|Primeira versão do MER |Letícia|
-15/01/2023|0.2| Alterações parciais segundo observações do professor | Letícia |
+| Data       | Versão | Alteração                                            | Autor   |
+| ---------- | ------ | ---------------------------------------------------- | ------- |
+| 19/12/2022 | 0.1    | Primeira versão do MER                               | Letícia |
+| 15/01/2023 | 0.2    | Alterações parciais segundo observações do professor | Letícia |
 # Modelo Entidade-Relacionamento
 
 ## Entidades
