@@ -1,6 +1,7 @@
 |Data|Versão|Alteração|Autor| 
 |----|------|---------|-----|
 19/12/2022|0.1|Primeira versão do MER |Letícia|
+15/01/2023|0.2| Alterações parciais segundo observações do professor | Letícia |
 # Modelo Entidade-Relacionamento
 
 ## Entidades
@@ -42,20 +43,20 @@
 
 ## Relacionamentos
 * Loja - *vende* - Item:
-    * Uma Loja *vende* um ou varios Item(s) e um ou varios Item(s) *são vendidos* por uma Loja;
-    * Cardinalidade: N : 1.
-* Jogador -  *dirige* -  Instância de Veículo:
-    * Um Jogador *dirige* uma ou várias Instância(s) de Veículo e zero ou várias Instância(s) de Veículo *são dirigidas* por um ou mais Jogador(es); 
-    * Cardinalidade: 0 : N.
+    * Uma Loja *vende* um ou varios Item(s) e um Item, *é vendido* por uma Loja;
+    * Cardinalidade: 1 : N
+* Jogador -  *dirige* -  Veículo:
+    * Um Jogador *dirige* um Veículo e um Veículo *é dirigido* por um Jogador; 
+    * Cardinalidade: 1 : 1.
 * Jogador -  *executa* -  Tarefa:
-    * Zero ou vários Jogador(es) *executam* uma ou mais Tarefa(s) e uma ou mais Tarefa(s) *pode ser executadas* por um Jogador. 
-    * Cardinalidade: N : M.
+    * Um jogador *executa* várias Tarefa(s) e uma Tarefa *é executada* por um Jogador. 
+    * Cardinalidade: 0 : N.
 * Jogador - *mata* - NPC:
-    * Um Jogador *mata* um ou vários NPC(s) e um ou vários NPCs *matam* um Jogador;
+    * Um Jogador *mata* um ou vários NPC(s) e um NPC *mata* um Jogador;
     * Cardinalidade: 1 : N.
 * Jogador - *recebe* - Tarefa:
     * Um Jogador *recebe* uma Tarefa e um Tarefa *é entregada* a um Jogador;
-    * Cardinalidade: 1 : 1.  
+    * Cardinalidade: N : N.  
 * Membro de Gangue Aliada - *entrega* - Tarefa:
     *  Um Membro de Gangue Aliada *entrega* uma Tarefa e uma Tarefa é *entregada* por um Jogador.
 * Jogador - *possui* - Inventario:
@@ -66,10 +67,10 @@
     * Cardinalidade: 1 : 1. 
 * Mapa - *contem* - Area:
     * Um Mapa *tem* uma ou várias Area(s) e uma ou várias Area(s) *é constituído* por um ou vários Mapa(s);
-    * Cardinalidade: 1 : N.
+    * Cardinalidade: N : N.
 * Area - *conecta* - Area:
     * Uma Area *conecta* uma Area e uma Area *é conectada* por outra Area;
-    * Cardinalidade: 1 : 1
+    * Cardinalidade: N : N
 * Area - *contem* - NPC:
     * Uma Area *contem* zero ou vário(s) NPC(s) e um ou mais NPCs *estão ou não* em uma Area;
     * Cardinalidade: 0 : N.
