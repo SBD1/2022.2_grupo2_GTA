@@ -1,12 +1,26 @@
-```
+-- Table Area
+
+CREATE TABLE IF NOT EXISTS Area (
+  idArea INT NOT NULL,
+  descricao VARCHAR(50) NULL,
+ 
+  PRIMARY KEY (idArea));
+
 -- Table Veiculo
 
 CREATE TABLE IF NOT EXISTS Veiculo (
     idVeiculo INT NOT NULL,
     tipo VARCHAR(20) NULL,
     velocidadeMax INT NULL,
-  
-  PRIMARY KEY (idVeiculo));
+ 	idArea INT NOT NULL,
+	
+  PRIMARY KEY (idVeiculo),
+
+  CONSTRAINT fk_Veiculo_Area1
+    FOREIGN KEY (idArea)
+    REFERENCES Area (idArea)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
   
   
 -- Table NPC
@@ -15,8 +29,15 @@ CREATE TABLE IF NOT EXISTS NPC (
   idNPC INT NOT NULL,
   vida INT NULL,
   tipo VARCHAR(30) NULL,
+  idArea INT NOT NULL,
   
-  PRIMARY KEY (idNPC));
+  PRIMARY KEY (idNPC),
+	
+  CONSTRAINT fk_NPC_Area1
+    FOREIGN KEY (idArea)
+    REFERENCES Area (idArea)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
 
 
 
@@ -65,11 +86,17 @@ CREATE TABLE IF NOT EXISTS Loja (
   descricao VARCHAR(50) NULL,
   estoque VARCHAR(20) NULL,
   idItem INT NOT NULL,
+  idArea INT NOT NULL,
   
   PRIMARY KEY (nomeLoja),
   CONSTRAINT fk_Loja_Item1
     FOREIGN KEY (idItem)
     REFERENCES Item (idItem)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_Loja_Area1
+    FOREIGN KEY (idArea)
+    REFERENCES Area (idArea)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
   
@@ -125,45 +152,7 @@ CREATE TABLE IF NOT EXISTS Droga (
     REFERENCES Item (idItem)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
-  
-
-
--- Table Area
-
-CREATE TABLE IF NOT EXISTS Area (
-  idArea INT NOT NULL,
-  descricao VARCHAR(50) NULL,
-  nomeLoja VARCHAR(20) NOT NULL,
-  idVeiculo INT NOT NULL,
-  idNPC INT NOT NULL,
-  Area_idArea INT NOT NULL,
-  Area_nomeLoja VARCHAR(20) NOT NULL,
-  Area_idVeiculo INT NOT NULL,
-  Area_idNPC INT NOT NULL,
-  
-  PRIMARY KEY (idArea, nomeLoja, idVeiculo, idNPC),
-  CONSTRAINT fk_Area_Loja1
-    FOREIGN KEY (nomeLoja)
-    REFERENCES Loja (nomeLoja)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT fk_Area_Veiculo1
-    FOREIGN KEY (idVeiculo)
-    REFERENCES Veiculo (idVeiculo)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT fk_Area_NPC1
-    FOREIGN KEY (idNPC)
-    REFERENCES NPC (idNPC)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT fk_Area_Area1
-    FOREIGN KEY (Area_idArea , Area_nomeLoja , Area_idVeiculo , Area_idNPC)
-    REFERENCES Area (idArea , nomeLoja , idVeiculo , idNPC)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
-
-
+ 
 
 -- Table Inventario
 
@@ -264,14 +253,11 @@ CREATE TABLE IF NOT EXISTS Mapa (
   idMapa INT NOT NULL,
   descricao VARCHAR(50) NULL,
   idArea INT NOT NULL,
-  Area_idArea INT NOT NULL,
-  Area_nomeLoja VARCHAR(20) NOT NULL,
-  Area_idVeiculo INT NOT NULL,
-  Area_idNPC INT NOT NULL,
+  
   PRIMARY KEY (idMapa),
   CONSTRAINT fk_Mapa_Area1
-    FOREIGN KEY (Area_idArea , Area_nomeLoja , Area_idVeiculo , Area_idNPC)
-    REFERENCES Area (idArea , nomeLoja , idVeiculo , idNPC)
+    FOREIGN KEY (idArea)
+    REFERENCES Area (idArea)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -294,4 +280,4 @@ CREATE TABLE IF NOT EXISTS Jogador_has_Tarefas (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
-```
+
