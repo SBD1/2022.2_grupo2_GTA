@@ -1,6 +1,7 @@
 |Data|Versão|Alteração|Autor| 
 |----|------|---------|-----|
 19/12/2022|0.1|Primeira versão do MER |Letícia|
+15/01/2023|0.2| Alterações segundo observações do professor | Letícia |
 # Modelo Entidade-Relacionamento
 
 ## Entidades
@@ -42,48 +43,44 @@
 
 ## Relacionamentos
 * Loja - *vende* - Item:
-    * Uma Loja *vende* um ou varios Item(s) e um ou varios Item(s) *são vendidos* por uma Loja;
-    * Cardinalidade: N : 1.
-* Jogador -  *dirige* -  Instância de Veículo:
-    * Um Jogador *dirige* uma ou várias Instância(s) de Veículo e zero ou várias Instância(s) de Veículo *são dirigidas* por um ou mais Jogador(es); 
-    * Cardinalidade: 0 : N.
+    * Uma Loja *vende* um ou varios Item(s) e um Item, *é vendido* por uma Loja;
+    * Cardinalidade: 1 : N
+* Jogador -  *dirige* -  Veículo:
+    * Um Jogador *dirige* um Veículo e um Veículo *é dirigido* por um Jogador; 
+    * Cardinalidade: 1 : 1.
 * Jogador -  *executa* -  Tarefa:
-    * Zero ou vários Jogador(es) *executam* uma ou mais Tarefa(s) e uma ou mais Tarefa(s) *pode ser executadas* por um Jogador. 
-    * Cardinalidade: N : M.
+    * Um jogador *executa* várias Tarefa(s) e uma Tarefa *é executada* por um Jogador. 
+    * Cardinalidade: 0 : N.
 * Jogador - *mata* - NPC:
-    * Um Jogador *mata* um ou vários NPC(s) e um ou vários NPCs *matam* um Jogador;
-    * Cardinalidade: 1 : N.
+    * Um Jogador *mata* nenhum ou vários NPC(s) e um NPC *mata* nenhum ou vários Jogador(es);
+    * Cardinalidade: 0 : N.
 * Jogador - *recebe* - Tarefa:
-    * Um Jogador *recebe* uma Tarefa e um Tarefa *é entregada* a um Jogador;
-    * Cardinalidade: 1 : 1.  
+    * Um Jogador *recebe* uma ou várias Tarefa(s) e um Tarefa *é entregada* a um ou vários Jogador(es);
+    * Cardinalidade: N : N.  
 * Membro de Gangue Aliada - *entrega* - Tarefa:
-    *  Um Membro de Gangue Aliada *entrega* uma Tarefa e uma Tarefa é *entregada* por um Jogador.
+    *  Um Membro de Gangue Aliada *entrega* uma ou nehuma Tarefa e uma Tarefa é *entregada* por um Membro de Gangue Aliada.
+    *  Cardinalidade: 1 : N.
 * Jogador - *possui* - Inventario:
     * Um Jogador *possui* um Inventario e um Inventario *é possuido* por um Jogador;
     * Cardinalidade: 1 : 1.    
-* Inventario - *possui* - Instancia de Item:
-    * Um Inventario *possui* nenhuma ou várias Instancia de Item e um Inventario *é possuido* por uma Instancia de Item;
-    * Cardinalidade: 1 : 1. 
 * Mapa - *contem* - Area:
-    * Um Mapa *tem* uma ou várias Area(s) e uma ou várias Area(s) *é constituído* por um ou vários Mapa(s);
-    * Cardinalidade: 1 : N.
+    * Um Mapa *contem* uma ou várias Area(s) e uma ou várias Area(s) *é constituído* por um ou vários Mapa(s);
+    * Cardinalidade: N : N.
 * Area - *conecta* - Area:
     * Uma Area *conecta* uma Area e uma Area *é conectada* por outra Area;
-    * Cardinalidade: 1 : 1
+    * Cardinalidade: N : N
 * Area - *contem* - NPC:
-    * Uma Area *contem* zero ou vário(s) NPC(s) e um ou mais NPCs *estão ou não* em uma Area;
-    * Cardinalidade: 0 : N.
+    * Uma Area *contem* nenhum ou vário(s) NPC(s) (0,n) e um NPC *está contido* em somente uma Area (1 : 1);
+    * Cardinalidade: (0 : N) e (1 : 1).
 * Area - *contem* - Loja:
     * Uma Area *contem* uma Loja e uma Loja *está contida* em uma Area;
     * Cardinalidade: 1 : 1.
 * Area - *contem* - Veiculo:
-    * Uma Area *contem* uma ou várias Instâncias de Veículo e uma Instância de Veículo *está contida* em uma Area;
-    * Cardinalidade: 1 : N.
-* Item - *gera* - InstanciaItem:
-    * Um Item *gera* uma ou várias InstanciaItem e uma InstanciaItem *é gerada* por um Item;
-    * Cardinalidade: N : 1.
+    * Uma Area *contem* nenhuma ou vários Veículos (o : N) e um Veículo *está contido* em uma Area (1 : 1);
+    * Cardinalidade: (0 : N) e (1 : 1).
 * Policial - *prende* - Membro de Gangue:
-    * Um ou vários policial(is) *prende* um ou vários Membro(s) de Gangue e um ou vários Membro(s) de Gangue são presos por um ou vários Policial(is).
+    * Um policial *prende* nenhum ou vários Membro(s) de Gangue e um Membro de Gangue é preso por nenhum ou um Polcial.
+    * Cardinalidade: (0:N) e (1 : 1).
 * Membro de Gangue Inimiga - *briga* - Membro de Gangue Aliada 
-    * Zero ou vários Membro(s) de Gangue Inimiga *brigam* com um ou mais Membro(s) de Gangue Aliada e zero ou vários Membro(s) de Gangue Aliada *brigam* com zero ou vários Membros de Gangue Inimiga.
-    * 
+    * Um Membro de Gangue Inimiga *briga* com um ou vários Membro(s) de Gangue Aliada e um Membro de Gangue Aliada *briga* com um ou vários Membro(s) de Gangue Inimiga. 
+    * Cardinalidade: 1 : N.

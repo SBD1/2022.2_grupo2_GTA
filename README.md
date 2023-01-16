@@ -28,9 +28,9 @@ O presente repositório tem como objetivo o desenvolvimento de um jogo inspirado
   - [Modelo Entidade Relacionamento](docs/MER.md)
   
 - Módulo 2
-   - [DDL](docs/DDL.md)
-   - [DQL](docs/DQL.md) 
-   - [DML](docs/DML.md)
+   - [DDL](docs/DDL.sql)
+   - [DQL](docs/DQL.sql) 
+   - [DML](docs/DML.sql)
 
 ## Colaboradores
 
