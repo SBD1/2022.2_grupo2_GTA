@@ -145,7 +145,7 @@ CREATE TABLE IF NOT EXISTS Droga (
   descricao VARCHAR(50) NULL,
   tipo VARCHAR(20) NULL,
   vantagem VARCHAR(30) NULL,
-  desvantegem VARCHAR(30) NULL,
+  desvantagem VARCHAR(30) NULL,
   
  PRIMARY KEY (idItem),
  CONSTRAINT fk_Droga_Item1
@@ -253,7 +253,6 @@ CREATE TABLE IF NOT EXISTS Tarefas (
 CREATE TABLE IF NOT EXISTS Mapa (
   idMapa INT NOT NULL,
   descricao VARCHAR(50) NULL,
-  idArea INT NOT NULL,
   
   PRIMARY KEY (idMapa));
 
