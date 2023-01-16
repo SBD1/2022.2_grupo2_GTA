@@ -255,10 +255,7 @@ CREATE TABLE IF NOT EXISTS Mapa (
   descricao VARCHAR(50) NULL,
   idArea INT NOT NULL,
   
-  PRIMARY KEY (idMapa),
-  CONSTRAINT fk_Mapa_Area1
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+  PRIMARY KEY (idMapa));
 
 
 -- Table Jogador_has_Tarefas
@@ -280,4 +277,23 @@ CREATE TABLE IF NOT EXISTS Jogador_has_Tarefas (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
-
+	
+	
+CREATE TABLE IF NOT EXISTS AreaCArea (
+  idA1 INT NOT NULL,
+  idA2 INT NOT NULL,
+ 
+  PRIMARY KEY (idA1, idA2),
+	
+	CONSTRAINT fk_AreaParaArea
+    FOREIGN KEY (idA1)
+    REFERENCES Area (idArea)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+	CONSTRAINT fk_AreaParaArea2
+    FOREIGN KEY (idA2)
+    REFERENCES Area (idArea)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+	
+	
