@@ -1,89 +1,116 @@
 /* linguagem de manipulação de dados */
 
-INSERT INTO item (idItem, descricao, usado, tipo)
+INSERT INTO item (idItem, nome, descricao)
 VALUES
-(1,'Bebida ForLife',100,'aumenta a vida do jogador'),
-(2,'Drink and Kill',100,'aumenta o dano da arma do jogador'),
-(3,'Bebida Feliz para sempre',100,'aumenta a vida do jogador');
+(10, 'heroína', 'Aumenta o dano causado, a troco de vida reduzida'),
+(11, 'morfina', 'Aumenta a vida máxima, mas reduz o dano causado'),
+(20, 'Suco Dolly', 'recupera pouca vida'),
+(21, 'Hamburguer', 'recupera qtd media de vida'),
+(22, 'Frango', 'recupera muita vida'),
+(30, 'AK-47', 'rifle automático'),
+(31, 'P90', 'submetralhadora'),
+(32, 'Bazuca','bazuca com dano explosivo'),
+(33, 'Espingarda', 'arma de curto alcance e alto dano'),
+(34, 'Desert Eagle', 'arma de pequeno porte com alto dano'),
+(35, 'Glock', 'arma de pequeno porte');
 
-INSERT INTO jogador(idPersonagem, nome, pontosVida, experiencia)
+INSERT INTO droga(idItem, nome, vantagem, desvantagem)
 VALUES
-(1,'Jack', 100,100),
-(2, 'Bob', 100,100),
-(3, 'Samanta', 100,100),
-(4, 'Spencer', 100,100),
-(5, 'Will', 100,100),
-(6, 'Drake', 100,100),
-(7, 'Ashley', 100,100);
+(10, 'heroína', '+25% dano', '-25HP'),
+(11, 'morfina', '+50HP maximo', '-25% dano'),
 
-INSERT INTO loja(nome, descricao, estoque)
+INSERT INTO comida(idItem, nome, txRecuperacaoVida)
 VALUES
-('Happy and Guns','loja de armas','AK-47', 'AM-1','P90','P40','ROCKET'),
-('Chill and Buy','loja de consumíveis', 'suco Dollyy(cura)','Tang (aumenta o dano)');
+(20, 'Suco Dolly', 25),
+(21, 'Hamburguer', 50),
+(22, 'Frango', 80);
 
-
-INSERT INTO área (idArea, descrição)
-VALORES
-( 1 , ' Zona Norte ' ),
-( 2 , ' Zona Sul ' ),
-( 3 , ' Zona Leste ' ),
-( 4 , ' Zona Oeste ' );
-
-INSERT INTO arma(tipo,descricao,qtdDano,qtdBalas)
-VALORES
-( ' AK-47 ' , ' arma de disparos automáticos ' , 70 , 35 ) ,
-( ' AM-1 ' , ' arma de disparos automáticos ' , 65 , 35 ) ,
-( ' P90 ' , ' arma de disparos automáticos ' , 65 , 30 ) ,
-( ' ROCKET ' , ' basuca com dano explosivo ' , 95 , 3 ),
-( ' espingarda ' , ' arma de únicos porém com dano acentuado ' , 75 , 7 ),
-( ' desert Eagle ' , ' arma de pequeno porte e fácil de usar ' , 65 , 8 )
-( ' pistola básica ' , ' arma de pequeno porte e fácil de usar ' , 40 , 10 );
-
-
-INSERT INTO área (idArea, descricao)
+INSERT INTO arma(idItem, nome, qtdDano, qtdBalas)
 VALUES
-(1,'Zona Norte'),
-(2,'Zona Sul'),
-(3,'Zona Leste'),
-(4,'Zona Oeste');
+(30, 'AK-47', 70, 35),
+(31, 'P90', 65, 50),
+(32, 'Bazuca', 95, 3),
+(33, 'Espingarda', 75, 7),
+(34, 'Desert Eagle', 65, 8),
+(35, 'Glock', 40, 10);
 
-INSERT INTO arma(tipo,descricao,qtdDano,qtdBalas)
+INSERT INTO npc(idNPC, vida, tipo)
 VALUES
-('AK-47','arma de disparos automáticos',70,35),
-('AM-1','arma de disparos automáticos',65,35),
-('P90','arma de disparos automáticos',65,30),
-('ROCKET','basuca com dano explosivo',95,3),
-('espingarda','arma de únicos porém com dano acentuado',75,7),
-('desert Eagle','arma de pequeno porte e fácil de usar',65,8),
-('pistola básica','arma de pequeno porte e fácil de usar',40,10);
+(100, 100, 'membro de gangue aliada'),
+(101, 100, 'membro de gangue aliada'),
+(102, 100, 'membro de gangue aliada'),
+(200, 100, 'membro de gangue inimiga'),
+(201, 100, 'membro de gangue inimiga'),
+(202, 100, 'membro de gangue inimiga'),
+(300, 100, 'policial'),
+(301, 100, 'policial'),
+(302, 100, 'policial');
 
-INSERT INTO comida(tipo, descricao, txRecuperacaoVida)
+INSERT INTO membro_de_gangue_aliada(idNPC, tipoAliado)
 VALUES
-('Suco Dolly','consumível feito de Dolly',35),
-('Suco Tang','consumível a base de Tang',25),
-('Pratao de frango','consumível',55),
-('Feijuca','consumível',65),
-('Refresco','consumível feito de suco de cor',20);
+(100, 'iniciante'),
+(101, 'soldado'),
+(102, 'chefe');
 
-INSERT INTO droga(tipo, descricao, vantagem, desvantagem)
+INSERT INTO membro_de_gangue_inimiga(idNPC, tipoInimigo)
 VALUES
-('analgésico','Cura um pouco de vida, mas pode causar desmaios', 'recupera 5HP','5% de chance de desmaios'),
-('heroína','Ganha muita energia, mas pode causar overdose', 'Corre mais rápido','-30HP'),
-('morfina','Alivia dor e te deixa com visão turva', 'recupera 20HP','Te deixa confuso'),
-('maconha','Extrato de planta que te faz ter uma brisa maneira', 'recupera 15HP','Te deixa confuso'),
-('ritalina','Droga que aumenta concentração (supostamente)', 'Aumenta concentração','-25HP');
+(200, 'fraco'),
+(201, 'rival'),
+(202, 'comandante');
 
-INSERT INTO inventario(idPersonagem,dinheiro)
+INSERT INTO policial(idNPC, tipoPolicial)
 VALUES
-(1,'10'),
-(2,'20'),
-(3,'30'),
-(4,'40'),
-(5,'50'),
-(6,'60'),
-(7,'70');
+(300, 'basico'),
+(301, 'tropa de choque'),
+(302, 'elite');
 
-INSERT INTO mapa(idMapa, descricao, coordenadaX, coordenadaY)
+INSERT INTO tarefa(nome, idNPC, objetivo, dificuldade)
+VALUES
+('primeiros passos', 100, 'consiga uma bicicleta', 1),
+('perigo à sociedade', 101, 'adquira uma arma de fogo', 2),
+('limpando o caixa', 102, 'roube a loja Chill and Buy', 3);
+
+INSERT INTO veiculo(idVeiculo, tipo, velocidadeMax)
+VALUES
+(1, 'bicicleta', 4),
+(2, 'moto', 10),
+(3, 'carro', 8),
+(4, 'helicoptero', 9),
+(5, 'blindado', 5);
+
+INSERT INTO jogador(idJogador, idVeiculo, nomeTarefa, nome, vida, experiencia, idPosição)
+VALUES
+(1, 1, 'primeiros passos', 'Jack', 100, 100, 1),
+(2, 2, 'primeiros passos', 'Bob', 100, 100, 2),
+(3, 3, 'primeiros passos', 'Samanta', 100, 100, 3),
+(4, 4, 'primeiros passos', 'Spencer', 100, 100, 4),
+(5, 5, 'primeiros passos', 'Will', 100, 100, 5),
+(6, 6, 'primeiros passos', 'Drake', 100, 100, 6),
+(7, 7, 'primeiros passos', 'Ashley', 100, 100, 7);
+
+INSERT INTO inventario(idInventario, idJogador, dinheiro)
+VALUES
+(1, 1, 10),
+(2, 2, 20),
+(3, 3, 30),
+(4, 4, 40),
+(5, 5, 50),
+(6, 6, 60),
+(7, 7, 70);
+
+INSERT INTO área (idArea, idVeiculo, idNPC, descrição) /* Editar */
+VALUES
+( 1, 1, 0, 'Zona Norte'),
+( 2, 2, 0, 'Zona Sul'),
+( 3, 0, 100, 'Zona Leste'),
+( 4, 0, 102, 'Zona Oeste');
+
+INSERT INTO loja(nome, idArea, idItem, descricao, estoque) /* Editar */
+VALUES
+('Happy and Guns', 6, 1, 'loja de armas','AK-47', 'AM-1','P90','P40','ROCKET'),
+('Chill and Buy', 1, 2, 'loja de consumíveis', 'suco Dollyy(cura)', 'Tang (aumenta o dano)');
+
+INSERT INTO mapa(idMapa, descricao, coordenadaX, coordenadaY) /* Editar */
 VALUES
 (1,'centro da cidade',1,1),
 (2,'rua da sua casa',2,1),
@@ -94,48 +121,3 @@ VALUES
 (7,'zona comercial',1,2),
 (8,'Morro da favela',2,0),
 (9,'Praia',0,2);
-
-INSERT INTO veiculo(idVeiculo, tipo, integridadeFisica, velocidadeMax)
-VALUES
-(1,'bicicleta',20,4),
-(2,'moto',40,10),
-(3,'carro',60,8),
-(4,'helicoptero',70,9),
-(5,'blindado',100,5);
-
-
-INSERT INTO membro_de_gangue_aliada(tipoAliado)
-VALUES
-(100),
-(101),
-(102);
-
-INSERT INTO membro_de_gangue_inimiga(tipoInimigo)
-VALUES
-(200),
-(201),
-(202);
-
-INSERT INTO policial(idPolicial)
-VALUES
-(300),
-(301),
-(302);
-
-INSERT INTO npc(idNPC, vida)
-VALUES
-(100, 100),
-(101, 100),
-(102, 100),
-(200, 100),
-(201, 100),
-(202, 100),
-(300, 100),
-(301, 100),
-(302, 100);
-
-INSERT INTO tarefa(nome,idJogador,idNPC,objetivo,dificuldade)
-VALUES
-('primeiros passos',1,100,'consiga uma bicicleta',1),
-('perigo à sociedade',2,101,'adquira uma arma de fogo',2),
-('limpando o caixa',3,102,'roube a loja Chill and Buy',3),
