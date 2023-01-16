@@ -51,6 +51,7 @@ CREATE TABLE IF NOT EXISTS Jogador (
   xp INT NULL,
   idVeiculo INT NOT NULL,
   idNPC INT NOT NULL,
+  idArea INT NOT NULL,
   
   PRIMARY KEY (idJogador),
   CONSTRAINT fk_Jogador_Veiculo1
@@ -256,8 +257,6 @@ CREATE TABLE IF NOT EXISTS Mapa (
   
   PRIMARY KEY (idMapa),
   CONSTRAINT fk_Mapa_Area1
-    FOREIGN KEY (idArea)
-    REFERENCES Area (idArea)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -268,6 +267,7 @@ CREATE TABLE IF NOT EXISTS Jogador_has_Tarefas (
   Jogador_idJogador INT NOT NULL,
   Tarefas_nomeTarefa VARCHAR(30) NOT NULL,
   Tarefas_idNPC INT NOT NULL,
+
   PRIMARY KEY (Jogador_idJogador, Tarefas_nomeTarefa, Tarefas_idNPC),
   CONSTRAINT fk_Jogador_has_Tarefas_Jogador1
     FOREIGN KEY (Jogador_idJogador)

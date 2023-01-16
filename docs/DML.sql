@@ -78,7 +78,7 @@ VALUES
 (4, 'helicoptero', 9),
 (5, 'blindado', 5);
 
-INSERT INTO jogador(idJogador, idVeiculo, nomeTarefa, nome, vida, experiencia, idPosição)
+INSERT INTO jogador(idJogador, idVeiculo, nomeTarefa, nome, vida, experiencia, idArea)
 VALUES
 (1, 1, 'primeiros passos', 'Jack', 100, 100, 1),
 (2, 2, 'primeiros passos', 'Bob', 100, 100, 2),
@@ -98,26 +98,26 @@ VALUES
 (6, 6, 60),
 (7, 7, 70);
 
-INSERT INTO área (idArea, idVeiculo, idNPC, descrição) /* Editar */
+INSERT INTO área (idArea, descrição) /* Editar */
 VALUES
-( 1, 1, 0, 'Zona Norte'),
-( 2, 2, 0, 'Zona Sul'),
-( 3, 0, 100, 'Zona Leste'),
-( 4, 0, 102, 'Zona Oeste');
+(1, 1, 'Centro da cidade'),
+(2, 2, 'Rua da sua casa'),
+(3, 3, 'Região do morro mal assombrado'),
+(4, 4, 'Base militar'),
+(5, 5, 'Hospital da cidade'),
+(6, 6, 'Aeroporto'),
+(7, 7, 'Zona comercial'),
+(8, 8, 'Morro da favela'),
+(9, 9, 'Praia');
 
 INSERT INTO loja(nome, idArea, idItem, descricao, estoque) /* Editar */
 VALUES
 ('Happy and Guns', 6, 1, 'loja de armas','AK-47', 'AM-1','P90','P40','ROCKET'),
 ('Chill and Buy', 1, 2, 'loja de consumíveis', 'suco Dollyy(cura)', 'Tang (aumenta o dano)');
 
-INSERT INTO mapa(idMapa, descricao, coordenadaX, coordenadaY) /* Editar */
+INSERT INTO mapa(idMapa, descricao) /* Editar */
 VALUES
-(1,'centro da cidade',1,1),
-(2,'rua da sua casa',2,1),
-(3,'região do morro mal assombrado',2,2),
-(4,'base militar',0,0),
-(5,'Hospital da cidade',1,0),
-(6,'Aeroporto',0,1),
-(7,'zona comercial',1,2),
-(8,'Morro da favela',2,0),
-(9,'Praia',0,2);
+(1, 'Zona Norte'),
+(2, 'Zona Sul'),
+(3, 'Zona Leste'),
+(4, 'Zona Oeste');
