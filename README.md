@@ -16,7 +16,7 @@ O presente repositório tem como objetivo o desenvolvimento de um jogo inspirado
 
 ## Apresentações
 
-[Apresentação do Módulo 1](https://www.youtube.com/watch?v=M9dlhzvS_Gk) <br>
+[Apresentação do Módulo 1](https://drive.google.com/file/d/1H3PqMpnf0POw6dFDDYKTpEEZzNRWQES9/view?usp=sharing) <br>
 [Apresentação do Módulo 2](link aqui)
 
 ## Entregas
