@@ -67,13 +67,13 @@
 ## Loja
 #### Local onde o personagem pode comprar itens.
 
-| Atributo  | Classe       | Tipo    | Tamanho | Descrição                        |
-| --------- | ------------ | ------- | ------- | -------------------------------- |
-| nomeLoja  | Determinante | varchar | 20      | Nome atribuído a Loja            | Happy and Guns 
-| idArea    | Determinante | int     | 1       | Chave estrangeira para a área    | 1 
-| idItem    | Determinante | int     | 1       | Chave estrangeira para o item    | 1 
-| descrição | Simples      | varchar | 50      | Descreve o propósito da loja     | loja de armas 
-| estoque   | Simples      | varchar | 20      | Lista de Items que a loja possui | 'AK-47', 'AM-1','P90','P40','ROCKET' 
+| Atributo  | Classe       | Tipo    | Tamanho | Descrição                        | Exemplo |
+| --------- | ------------ | ------- | ------- | -------------------------------- | ---- |
+| nomeLoja  | Determinante | varchar | 20      | Nome atribuído a Loja            | Happy and Guns |
+| idArea    | Determinante | int     | 1       | Chave estrangeira para a área    | 1 |
+| idItem    | Determinante | int     | 1       | Chave estrangeira para o item    | 1 |
+| descrição | Simples      | varchar | 50      | Descreve o propósito da loja     | loja de armas |
+| estoque   | Simples      | varchar | 20      | Lista de Items que a loja possui | 'AK-47', 'AM-1','P90','P40','ROCKET' |
 
 
 ## Mapa
@@ -167,4 +167,5 @@
 | 28/12/2022 |  1.6   |        Atualização para o novo MREL         | Vinícius  |
 | 15/01/2023 |  2.0   | Correções conforme observações do professor |  Letícia  |
 | 16/01/2023 |  2.1   |             Ajuste das tabelas              |   Davi    |
+| 16/01/2023 |  2.2   |             Correção das tabelas            |   Letícia |
 
