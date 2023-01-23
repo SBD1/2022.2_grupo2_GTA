@@ -9,9 +9,11 @@ con = psycopg2.connect(
     )
 
 print('Bem vindo a GTA! VC esta jogando com Jogador 1\n\n')
-with con:
-    v = 1
-    while v != 0:
+v = 1
+
+
+while v != 0:
+    with con:
         cursor = con.cursor()
         cursor.execute('SELECT idArea FROM Jogador WHERE idJogador=%s', [1])
         resultados = cursor.fetchone()
@@ -36,7 +38,7 @@ with con:
 
         novarea = input("\nDiga a area que quer ir(digite zero para sair):")
         if novarea != '0':
-            cursor.execute('UPDATE Jogador SET idArea = %s', [novarea])
+            cursor.execute('UPDATE Jogador SET idArea = %s WHERE idJogador=%s', [novarea, 1])
         else:
             v = 0
 con.close()
