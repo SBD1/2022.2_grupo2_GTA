@@ -9,4 +9,26 @@ BEGIN
 END;
 $check_tarefa_cumprida$ LANGUAGE plpgsql;
 
+/* 
+    - Um trigger / stored p/ cada quest
+    - Alterar o jogador.has_tarefa
+    - Alterar tarefa 3 para matar 10 soldados
+    - 
 
+*/
+
+
+CREATE OR REPLACE FUNCTION remove_tarefa(id_jogador, id_tarefa) RETURNS BOOLEAN AS $remove_tarefa$
+BEGIN
+    UPDATE Tarefas_concluidas
+        if id_tarefa = 'primeiros passos' then
+            SET tarefa1 = 1
+            WHERE Tarefas_concluidas.idJogador = id_jogador
+            RETURN FOUND;
+        end if;
+END;
+$remove_tarefa$ LANGUAGE plpgsql
+
+CREATE TRIGGER remove_tarefa
+AFTER UPDATE ON Jogador_has_Tarefas
+FOR EACH ROW EXECUTE PROCEDURE remove_tarefa(jogador_idJogador, Tarefas_nomeTarefa)

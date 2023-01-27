@@ -276,7 +276,24 @@ CREATE TABLE IF NOT EXISTS Jogador_has_Tarefas (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
-	
+
+CREATE TABLE IF NOT EXISTS Tarefas_concluidas (
+  Jogador_idJogador INT NOT NULL,
+  Tarefas_nomeTarefa VARCHAR(30) NOT NULL,
+  Tarefas_idNPC INT NOT NULL,
+
+  PRIMARY KEY (Jogador_idJogador, Tarefas_nomeTarefa, Tarefas_idNPC),
+  CONSTRAINT fk_Jogador_has_Tarefas_Jogador1
+    FOREIGN KEY (Jogador_idJogador)
+    REFERENCES Jogador (idJogador)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_Jogador_has_Tarefas_Tarefas1
+    FOREIGN KEY (Tarefas_nomeTarefa , Tarefas_idNPC)
+    REFERENCES Tarefas (nomeTarefa , idNPC)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
 	
 CREATE TABLE IF NOT EXISTS AreaCArea (
   idA1 INT NOT NULL,

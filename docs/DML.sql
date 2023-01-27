@@ -98,9 +98,20 @@ VALUES
 
 INSERT INTO tarefas(nomeTarefa,dificuldade, objetivo, xp, idNPC)
 VALUES
-('primeiros passos', 1, 'consiga uma bicicleta', 100,100),
-('perigo à sociedade', 2, 'adquira uma arma de fogo', 200,101),
-('limpando o caixa', 3, 'roube a loja Chill and Buy', 300, 102);
+('primeiros passos', 1, 'consiga uma bicicleta', 100, 100),
+('perigo à sociedade', 2, 'adquira uma arma de fogo', 200, 101),
+('---', 3, 'mate 10 soldados', 300, 102);
+
+
+INSERT INTO Jogador_has_Tarefas(jogador_idJogador, Tarefas_nomeTarefa, Tarefas_idNPC, concluido)
+VALUES
+(1, 'primeiros passos', 100, 0)
+
+
+INSERT INTO Tarefas_concluidas(idJogador, tarefa1, tarefa2, tarefa3)
+VALUES
+(1, 1, 0, 0)
+
 
 INSERT INTO veiculo(idVeiculo, tipo, velocidadeMax, idArea)
 VALUES
@@ -131,7 +142,6 @@ VALUES
 (5, 5, 50),
 (6, 6, 60),
 (7, 7, 70);
-
 
 
 INSERT INTO loja(nomeLoja, descricao, estoque, idItem, idArea) /* Editar */
