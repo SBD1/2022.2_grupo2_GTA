@@ -1,5 +1,5 @@
 import psycopg2
-
+import os
 
 con = psycopg2.connect(
         host='localhost',
@@ -28,7 +28,6 @@ while v != 0:
         cursor.execute('SELECT idA2 FROM AreaCArea WHERE idA1=%s', [areajogador])
         areas = cursor.fetchall()
         var = len(areas)
-        cont = 1
         for idA2 in areas:
             cursor.execute('SELECT descricao FROM Area WHERE idArea=%s', [idA2])
             resp = cursor.fetchone()
@@ -37,8 +36,10 @@ while v != 0:
             print(f'{id} - {descricao}')
 
         novarea = input("\nDiga a area que quer ir(digite zero para sair):")
-        if novarea != '0':
-            cursor.execute('UPDATE Jogador SET idArea = %s WHERE idJogador=%s', [novarea, 1])
+        idjogador = 1
+        if novarea != '0' and novarea != 'zero':
+            cursor.execute('UPDATE Jogador SET idArea = %s WHERE idJogador=%s', [novarea, idjogador])
+            os.system('cls' if os.name == 'nt' else 'clear')
         else:
             v = 0
 con.close()
