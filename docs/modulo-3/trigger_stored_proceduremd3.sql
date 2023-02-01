@@ -17,18 +17,20 @@ $check_tarefa_cumprida$ LANGUAGE plpgsql;
 
 */
 
-
-CREATE OR REPLACE FUNCTION remove_tarefa(id_jogador, id_tarefa) RETURNS BOOLEAN AS $remove_tarefa$
+CREATE OR REPLACE FUNCTION remove_tarefa()
+RETURNS trigger
+AS $remove_tarefa$
 BEGIN
-    UPDATE Tarefas_concluidas
-        if id_tarefa = 'primeiros passos' then
-            SET tarefa1 = 1
-            WHERE Tarefas_concluidas.idJogador = id_jogador
-            RETURN FOUND;
-        end if;
+    IF 
+    -- UPDATE Tarefas_concluidas
+    --     SET tarefa_1 = 1
+    --     WHERE fk_id_jogador = id_jogador
+    --     RETURN FOUND;
 END;
-$remove_tarefa$ LANGUAGE plpgsql
+$remove_tarefa$ LANGUAGE plpgsql;
+
+CALL remove_tarefa();
 
 CREATE TRIGGER remove_tarefa
-AFTER UPDATE ON Jogador_has_Tarefas
-FOR EACH ROW EXECUTE PROCEDURE remove_tarefa(jogador_idJogador, Tarefas_nomeTarefa)
+BEFORE UPDATE ON Jogador_has_Tarefas
+FOR EACH ROW EXECUTE PROCEDURE remove_tarefa()
