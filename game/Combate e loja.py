@@ -187,7 +187,6 @@ def store(action, escolha):
     
     
     dinheiro = checkMoney()
-    
     print(f'Você possui: R$ {dinheiro},00')
     compra = input("Digite o que deseja comprar:")
     for index in nomeItemLoja:
@@ -195,7 +194,6 @@ def store(action, escolha):
             if dinheiro >= index[0]:
                 print(index,"Analise")
                 dinheiro -= int(index[0])
-                dinheiro = dinheiro + 90
                 cursor.execute('UPDATE Jogador SET dinheiro = %s WHERE idJogador = %s', [dinheiro, 1])
                 
                 cursor.execute(f'DELETE FROM Inventario WHERE idInventario = 8') #Para não ter que fixar mudando toda vez que executar, tocar Id para auto incre
@@ -206,24 +204,9 @@ def store(action, escolha):
                 print("Você não possui dinheiro sufuciente!")
 
 
-
-            
-          
-
-
-    #cursor.execute(f'SELECT preco,descricao   FROM arma WHERE idItem = {index}')
-    #nomeItemLoja.append(cursor.fetchone())
-
-
-   
-    #cursor.execute(f'SELECT idItem FROM Loja_possui_Item WHERE nomeLoja = "Happy and Guns"')
-    #itemsLoja = cursor.fetchall()
-
-
-
-               
+      
 print('Bem vindo a GTA! VC esta jogando com Jogador 1\n\n')
-print(enemyOnArea())
+
 
 while action  != '0':
     with con:
