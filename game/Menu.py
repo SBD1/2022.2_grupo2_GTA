@@ -2,12 +2,12 @@ import os
 import sys
 import psycopg2
 
-#con = psycopg2.connect(
-        #host='localhost',
-        #dbname='GTA',
-        #user='postgres',
-        #password='abc123'
-    #)
+con = psycopg2.connect(
+        host='localhost',
+        dbname='Teste6',
+        user='postgres',
+        password='Thiagoareu1'
+    )
 
 def game_menu():
     game_name()
@@ -43,14 +43,14 @@ def sub_menu():
 
 def game_name():
     os.system('cls' if os.name == 'nt' else 'clear')
-    print(" $$$$$$\                                     $$\       $$$$$$$$\ $$\                  $$$$$$\    $$\            $$$$$$\              $$\               ")
-    print("$$  __$$\                                    $$ |      \__$$  __|$$ |                $$  __$$\   $$ |          $$  __$$\             $$ |              ")
-    print("$$ /  \__| $$$$$$\  $$$$$$\  $$$$$$$\   $$$$$$$ |         $$ |   $$$$$$$\   $$$$$$\  $$ /  \__|$$$$$$\         $$ /  $$ |$$\   $$\ $$$$$$\    $$$$$$\  ")
-    print("$$ |$$$$\ $$  __$$\ \____$$\ $$  __$$\ $$  __$$ |         $$ |   $$  __$$\ $$  __$$\ $$$$\     \_$$  _|        $$$$$$$$ |$$ |  $$ |\_$$  _|  $$  __$$\ ")
-    print("$$ |\_$$ |$$ |  \__|$$$$$$$ |$$ |  $$ |$$ /  $$ |         $$ |   $$ |  $$ |$$$$$$$$ |$$  _|      $$ |          $$  __$$ |$$ |  $$ |  $$ |    $$ /  $$ |")
-    print("$$ |  $$ |$$ |     $$  __$$ |$$ |  $$ |$$ |  $$ |         $$ |   $$ |  $$ |$$   ____|$$ |        $$ |$$\       $$ |  $$ |$$ |  $$ |  $$ |$$\ $$ |  $$ |")
-    print("\$$$$$$  |$$ |     \$$$$$$$ |$$ |  $$ |\$$$$$$$ |         $$ |   $$ |  $$ |\$$$$$$$\ $$ |        \$$$$  |      $$ |  $$ |\$$$$$$  |  \$$$$  |\$$$$$$  |")
-    print(" \______/ \__|      \_______|\__|  \__| \_______|         \__|   \__|  \__| \_______|\__|         \____/       \__|  \__| \______/    \____/  \______/ \n")
+    print(" $$$$$$\                                   $$\       $$$$$$$$\ $$\                  $$$$$$\    $$\            $$$$$$\              $$\               ")
+    print("$$  $$\                                    $$ |      \__$$  |$$ |                $$  $$\   $$ |              $$  __$$\             $$ |              ")
+    print("$$ /  \| $$$$$$\  $$$$$$\  $$$$$$$\   $$$$$$$ |         $$ |   $$$$$$$\   $$$$$$\  $$ /  \__|$$$$$$\         $$ /  $$ |$$\   $$\ $$$$$$\    $$$$$$\  ")
+    print("$$ |$$$$\ $$  $$\ \____$$\ $$  __$$\ $$  __$$ |         $$ |   $$  __$$\ $$  __$$\ $$$$\     \_$$  _|        $$$$$$$$ |$$ |  $$ |\_$$  _|  $$  __$$\ ")
+    print("$$ |\_$$ |$$ |  \|$$$$$$$ |$$ |  $$ |$$ /  $$ |         $$ |   $$ |  $$ |$$$$$$$$ |$$  _|      $$ |          $$  $$ |$$ |  $$ |  $$ |    $$ /  $$ |")
+    print("$$ |  $$ |$$ |   $$  __$$ |$$ |  $$ |$$ |  $$ |         $$ |   $$ |  $$ |$$   ____|$$ |      $$ |$$\         $$ |  $$ |$$ |  $$ |  $$ |$$\ $$ |  $$ |")
+    print("\$$$$$$  |$$ |   \$$$$$$$ |$$ |  $$ |\$$$$$$$ |         $$ |   $$ |  $$ |\$$$$$$$\ $$ |      \$$$$  |        $$ |  $$ |\$$$$$$  |  \$$$$  |\$$$$$$  |")
+    print(" \______/ \|      \_______|\__|  \__| \_______|         \__|   \__|  \__| \_______|\__|         \____/       \__|  \__| \______/    \____/  \______/ \n")
     pass
 
 def start_new_game():
@@ -61,7 +61,7 @@ def start_new_game():
 
 def load_saved_game():
     game_name()
-    print("2. Load Saved Game")
+    #chose_player()
     pass
 
 def game_tutorial():
@@ -79,3 +79,24 @@ def quit_game():
     print("Volte sempre!\n")
     sys.exit()
     pass
+
+def save_name(name: str) -> None:
+    cursor = con.cursor()
+    cursor.execute('INSERT INTO Jogador (idJogador, nome, vida, xp, idVeiculo, idNPC, idArea ) VALUES (%s, %s, %s, %s, %s, %s, %s);', [7, name, 100, 0, 1, 300, 1])
+
+    
+def create_player() -> str:
+    print("Bem vindo ao GTA!")
+    while True:
+        name = input("Qual será o nome do seu personagem? ").strip()
+        if len(name)>0:
+            break
+        else:
+            print("Insira um nome válido")
+    save_name(name)
+    #se tiver tempo, implementar função que verifica se existe nome igual
+    return {'nome' : name}
+
+
+
+game_menu()
