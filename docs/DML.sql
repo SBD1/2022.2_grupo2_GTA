@@ -96,11 +96,11 @@ VALUES
 (301, 100,'choque'),
 (302, 100,'elite');
 
-INSERT INTO tarefas(nomeTarefa,dificuldade, objetivo, xp, idNPC)
+INSERT INTO tarefas(nomeTarefa,dificuldade, objetivo, xp, idNPC, NumTarefa)
 VALUES
-('primeiros passos', 1, 'consiga uma bicicleta', 100,100),
-('perigo à sociedade', 2, 'adquira uma arma de fogo', 200,101),
-('limpando o caixa', 3, 'roube a loja Chill and Buy', 300, 102);
+('primeiros passos', 1, 'consiga uma bicicleta', 100,100,1),
+('perigo à sociedade', 2, 'adquira uma arma de fogo', 200,101,2),
+('limpando o caixa', 3, 'roube a loja Chill and Buy', 300, 102,3);
 
 INSERT INTO veiculo(idVeiculo, tipo, velocidadeMax, idArea)
 VALUES
@@ -112,15 +112,15 @@ VALUES
 (6, 'blindado', 5, 6),
 (7, 'blindado', 5, 7);
 
-INSERT INTO jogador(idJogador, nome, vida, xp,idVeiculo,idNPC, idArea)
+INSERT INTO jogador(idJogador, nome, vida, xp,idVeiculo,idNPC, idArea, idtarefa)
 VALUES
-(1, 'Jack', 100, 0, 1, 100,1),
-(2, 'Bob', 100, 0, 2, 100,1),
-(3, 'Samanta', 100, 0, 3, 100,1),
-(4, 'Spencer', 100, 0, 4, 100,1),
-(5, 'Will', 100, 0, 5, 100,1),
-(6, 'Drake', 100, 0, 6, 100,1),
-(7, 'Ashley', 100, 0, 7, 100,1);
+(1, 'Jack', 100, 0, 1, 100,1,0),
+(2, 'Bob', 100, 0, 2, 100,1,0),
+(3, 'Samanta', 100, 0, 3, 100,1,0),
+(4, 'Spencer', 100, 0, 4, 100,1,0),
+(5, 'Will', 100, 0, 5, 100,1,0),
+(6, 'Drake', 100, 0, 6, 100,1,0),
+(7, 'Ashley', 100, 0, 7, 100,1,0);
 
 INSERT INTO inventario(idInventario, idJogador, dinheiro)
 VALUES
