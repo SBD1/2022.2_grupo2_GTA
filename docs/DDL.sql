@@ -52,6 +52,7 @@ CREATE TABLE IF NOT EXISTS Jogador (
   idVeiculo INT NOT NULL,
   idNPC INT NOT NULL,
   idArea INT NOT NULL,
+  idtarefa INT NOT NULL,
   
   PRIMARY KEY (idJogador),
   CONSTRAINT fk_Jogador_Veiculo1
@@ -238,7 +239,8 @@ CREATE TABLE IF NOT EXISTS Tarefas (
   objetivo VARCHAR(50) NULL,
   xp INT NULL,
   idNPC INT NOT NULL,
-  
+  NumTarefa INT NOT NULL UNIQUE,
+	
   PRIMARY KEY (nomeTarefa,idNPC),
   CONSTRAINT fk_Tarefas_MembroDeGangueAliada1
     FOREIGN KEY (idNPC)
