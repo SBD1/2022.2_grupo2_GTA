@@ -79,3 +79,21 @@ def quit_game():
     print("Volte sempre!\n")
     sys.exit()
     pass
+
+def save_name(name: str) -> None:
+    with con:
+        with con.cursor() as cursor:
+            cursor.execute('INSERT INTO Jogador (idJogador, nome, vida, xp, idVeiculo, idNPC, idArea ) VALUES (%s, %s, %s, %s, %s, %s, %s);', [15, 'cj', 100, 0, 1, 300, 1])
+    
+def create_player() -> str:
+    print("Bem vindo ao GTA!")
+    while True:
+        name = input("Qual será o nome do seu personagem? ").strip()
+        if len(name)>0:
+            break
+        else:
+            print("Insira um nome válido")
+    save_name(name)
+    return {'nome' : name}
+
+game_menu()
