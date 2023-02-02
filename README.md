@@ -17,7 +17,7 @@ O presente repositório tem como objetivo o desenvolvimento de um jogo inspirado
 ## Apresentações
 
 [Apresentação do Módulo 1](https://drive.google.com/file/d/1H3PqMpnf0POw6dFDDYKTpEEZzNRWQES9/view?usp=sharing) <br>
-[Apresentação do Módulo 2](https://drive.google.com/file/d/1X6HQQpA2z56oxkmlpqWv4WfQUgN8Jf5t/view?usp=sharing)
+[Apresentação do Módulo 2](https://drive.google.com/file/d/1X6HQQpA2z56oxkmlpqWv4WfQUgN8Jf5t/view?usp=sharing) <br>
 [Apresentação do Módulo 3](https://drive.google.com/file/d/1secMGUwf3kz5fcAfqnvidgU1uXg8ojkI/view?usp=sharing)
 
 ## Entregas
@@ -32,6 +32,8 @@ O presente repositório tem como objetivo o desenvolvimento de um jogo inspirado
    - [DDL](docs/DDL.sql)
    - [DQL](docs/DQL.sql) 
    - [DML](docs/DML.sql)
+- Módulo 3
+   - [Game](game)
 
 ## Colaboradores
 
