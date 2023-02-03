@@ -47,14 +47,14 @@ VALUES
 (23, 'fritas -> recupera muito pouca vida', 'Comida', 10),
 (24, 'pizza -> cura toda vida', 'Comida', 100);
 
-INSERT INTO arma(idItem, descricao, tipo, qtdDano, qtdBalas)
+INSERT INTO arma(idItem, descricao, preco, tipo, qtdDano, qtdBalas)
 VALUES
-(30, 'AK-47 ', 'arma', 70, 35),
-(31, 'P90 ', 'arma', 65, 50),
-(32, 'Bazuca', 'arma', 95, 3),
-(33, 'Espingarda ', 'arma', 75, 7),
-(34, 'Desert Eagle ', 'arma', 65, 8),
-(35, 'Glock', 'arma', 40, 10);
+(30, 'AK-47', 100, 'arma', 70, 35),
+(31, 'P90', 75, 'arma', 65, 50),
+(32, 'Bazuca', 200, 'arma', 95, 3),
+(33, 'Espingarda', 60, 'arma', 75, 7),
+(34, 'Desert Eagle', 40, 'arma', 65, 8),
+(35, 'Glock', 30, 'arma', 40, 10);
 
 
 INSERT INTO npc(idNPC, vida, tipo, idArea)
@@ -67,7 +67,19 @@ VALUES
 (202, 100, 'membro de gangue inimiga','3'),
 (300, 100, 'policial','1'),
 (301, 100, 'policial','1'),
-(302, 100, 'policial','1');
+(302, 100, 'basico','4'),
+(303, 100,'basico','4'),
+(304, 100,'basico','4'),
+(305, 100,'choque','4'),
+(306, 100,'choque','4'),
+(307, 100,'choque','4'),
+(308, 100,'choque','4'),
+(309, 100,'choque','4'),
+(310, 100,'elite','4'),
+(311, 100,'elite','4'),
+(312, 100,'elite','4'),
+(313, 100,'elite','4'),
+(314, 100,'elite','4');
 
 INSERT INTO MembroDeGangue(idNPC, tipo)
 VALUES
@@ -90,11 +102,23 @@ VALUES
 (201, 2,100),
 (202, 3,100);
 
-INSERT INTO policial(idNPC, vida, tipoPolicial)
+INSERT INTO policial(idNPC, vida, danoPolicial, tipoPolicial)
 VALUES
-(300, 100,'basico'),
-(301, 100,'choque'),
-(302, 100,'elite');
+(300, 100, 10,'basico'),
+(301, 100, 10,'basico'),
+(302, 100, 10,'basico'),
+(303, 100, 10,'basico'),
+(304, 100, 10,'basico'),
+(305, 100, 20,'choque'),
+(306, 100, 20,'choque'),
+(307, 100, 20,'choque'),
+(308, 100, 20,'choque'),
+(309, 100, 20,'choque'),
+(310, 100, 30,'elite'),
+(311, 100, 30,'elite'),
+(312, 100, 30,'elite'),
+(313, 100, 30,'elite'),
+(314, 100, 30,'elite');
 
 INSERT INTO tarefas(nomeTarefa,dificuldade, objetivo, xp, idNPC, NumTarefa)
 VALUES
@@ -112,27 +136,25 @@ VALUES
 (6, 'blindado', 5, 6),
 (7, 'blindado', 5, 7);
 
-INSERT INTO jogador(idJogador, nome, vida, xp,idVeiculo,idNPC, idArea, idtarefa)
+INSERT INTO jogador(idJogador, nome, vida, dinheiro, nivelProcurado, xp, idVeiculo, idNPC, idArea, idtarefa)
 VALUES
-(1, 'Jack', 100, 0, 1, 100,1,0),
-(2, 'Bob', 100, 0, 2, 100,1,0),
-(3, 'Samanta', 100, 0, 3, 100,1,0),
-(4, 'Spencer', 100, 0, 4, 100,1,0),
-(5, 'Will', 100, 0, 5, 100,1,0),
-(6, 'Drake', 100, 0, 6, 100,1,0),
-(7, 'Ashley', 100, 0, 7, 100,1,0);
+(0, 'BAU', 100, 0, 0, 0, 1, 100,1,0),
+(1, 'Jack', 100, 0, 0,  0, 1, 100,1,0),
+(2, 'Bob', 100, 0, 0,  0, 2, 100,1,0),
+(3, 'Samanta', 100, 0, 0, 0, 3, 100,1,0),
+(4, 'Spencer', 100, 0, 0, 0, 4, 100,1,0),
+(5, 'Will', 100, 0, 0, 0, 5, 100,1,0),
+(6, 'Drake', 100, 0, 0, 0, 6, 100,1,0);
 
-INSERT INTO inventario(idInventario, idJogador, dinheiro)
+INSERT INTO inventario(idInventario, idJogador, idItem)
 VALUES
-(1, 1, 10),
-(2, 2, 20),
-(3, 3, 30),
-(4, 4, 40),
-(5, 5, 50),
-(6, 6, 60),
-(7, 7, 70);
-
-
+(0, 0, 35),
+(1, 1, 35),
+(2, 1, 34),
+(3, 3, NULL),
+(4, 4, NULL),
+(5, 5, NULL),
+(6, 6, NULL);
 
 INSERT INTO loja(nomeLoja, descricao, estoque, idItem, idArea) /* Editar */
 VALUES
@@ -172,3 +194,12 @@ VALUES
 (8,9),
 (9,6),
 (9,8);
+
+INSERT INTO Loja_possui_Item(nomeLoja, idItem)
+VALUES
+('Happy and Guns',30),
+('Happy and Guns',31),
+('Happy and Guns',32),
+('Happy and Guns',33),
+('Happy and Guns',34),
+('Happy and Guns',35);
