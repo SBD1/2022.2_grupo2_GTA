@@ -25,10 +25,26 @@ BEGIN
         UPDATE jogador SET vida=100 WHERE idJogador = NEW.idJogador;
     END IF;
 
-    IF NEW.nivelProcurado > 1 THEN
+    IF NEW.nivelProcurado == 1 THEN
         RAISE NOTICE 'Você esta com nivel de procurado 1';
 
         UPDATE nivelProcurado SET nivelProcurado=1 WHERE nivelProcurado = NEW.nivelProcurado;
+    ELSE IF NEW.nivelProcurado == 2 THEN
+        RAISE NOTICE 'Você esta com nivel de procurado 2';
+
+        UPDATE nivelProcurado SET nivelProcurado=3 WHERE nivelProcurado = NEW.nivelProcurado;
+    ELSE IF NEW.nivelProcurado == 3 THEN
+        RAISE NOTICE 'Você esta com nivel de procurado 3';
+
+        UPDATE nivelProcurado SET nivelProcurado=4 WHERE nivelProcurado = NEW.nivelProcurado;
+    ELSE IF NEW.nivelProcurado == 4 THEN
+        RAISE NOTICE 'Você esta com nivel de procurado 4';
+
+        UPDATE nivelProcurado SET nivelProcurado=2 WHERE nivelProcurado = NEW.nivelProcurado;
+    ELSE IF NEW.nivelProcurado == 5 THEN
+        RAISE NOTICE 'Você esta com nivel de procurado 5';
+
+        UPDATE nivelProcurado SET nivelProcurado=5 WHERE nivelProcurado = NEW.nivelProcurado;        
     END IF;
     
     IF NEW.xp >100 THEN
