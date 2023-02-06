@@ -35,6 +35,20 @@ O presente repositório tem como objetivo o desenvolvimento de um jogo inspirado
 - Módulo 3
    - [Game](game)
 
+
+## Tutorial
+
+- Pré-requisitos: ter o pgAdmin4 e Python instalados, o repositório do trabalho e uma IDE no seu computador com o pacote do psycopg2 instalado no diretório do trabalho (pip install psycopg2 pelo terminal);
+
+<ol>
+  <li>Crie uma database no Pgadmin4 chamada "gta";</li>
+  <li>Dê acesso ao usuário "postgres" e coloque a senha "postgres";</li>
+  <li>Clicando na base criada, selecione a aba "tools" e clique em "Query tools";</li>
+  <li>No painel "Query", abra cada um dos arquivos de extensão ".sql", e os execute usando F5;</li>
+  <li>Abra a IDE, e execute o arquivo "Jogo.py";</li>
+</ol>
+
+
 ## Colaboradores
 
 <table>
