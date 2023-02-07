@@ -1,6 +1,7 @@
 import os
 import sys
 import psycopg2
+from Database import get_connection,AS_DICT
 
 action = 1
 escolha = 1
@@ -13,25 +14,23 @@ global nomeJogadorAtual
 
 con = psycopg2.connect(
         host='localhost',
-        dbname='GTA4',
+        dbname='GTA V',
         user='postgres',
         password='Thiagoareu1'
     )
-
-cursor = con.cursor()
 
 def game_menu():
     game_name()
     print("Bem vindo ao GTA!")
     print("1. Começar novo jogo")
-    print("2. Continuar último jogo")
+    print("2. Escolher outro jogo existente")
     print("3. Tutorial")
     print("4. Sair")
     choice = input("O que você gostaria de fazer? ")
     if choice == "1":
         start_new_game()
     elif choice == "2":
-        load_saved_game()
+        choose_save()
     elif choice == "3":
         game_tutorial()
     elif choice=="4":
@@ -55,13 +54,13 @@ def sub_menu():
 def game_name():
     os.system('cls' if os.name == 'nt' else 'clear')
     print(" $$$$$$\                                     $$\       $$$$$$$$\ $$\                  $$$$$$\    $$\            $$$$$$\              $$\               ")
-    print("$$  $$\                                    $$ |      \__$$  |$$ |                $$  $$\   $$ |          $$  __$$\             $$ |              ")
-    print("$$ /  \| $$$$$$\  $$$$$$\  $$$$$$$\   $$$$$$$ |         $$ |   $$$$$$$\   $$$$$$\  $$ /  \__|$$$$$$\         $$ /  $$ |$$\   $$\ $$$$$$\    $$$$$$\  ")
-    print("$$ |$$$$\ $$  $$\ \____$$\ $$  __$$\ $$  __$$ |         $$ |   $$  __$$\ $$  __$$\ $$$$\     \_$$  _|        $$$$$$$$ |$$ |  $$ |\_$$  _|  $$  __$$\ ")
-    print("$$ |\_$$ |$$ |  \|$$$$$$$ |$$ |  $$ |$$ /  $$ |         $$ |   $$ |  $$ |$$$$$$$$ |$$  _|      $$ |          $$  $$ |$$ |  $$ |  $$ |    $$ /  $$ |")
+    print("$$  __$$\                                    $$ |      \__$$  __|$$ |                $$  __$$\   $$ |          $$  __$$\             $$ |              ")
+    print("$$ /  \__| $$$$$$\  $$$$$$\  $$$$$$$\   $$$$$$$ |         $$ |   $$$$$$$\   $$$$$$\  $$ /  \__|$$$$$$\         $$ /  $$ |$$\   $$\ $$$$$$\    $$$$$$\  ")
+    print("$$ |$$$$\ $$  __$$\ \____$$\ $$  __$$\ $$  __$$ |         $$ |   $$  __$$\ $$  __$$\ $$$$\     \_$$  _|        $$$$$$$$ |$$ |  $$ |\_$$  _|  $$  __$$\ ")
+    print("$$ |\_$$ |$$ |  \__|$$$$$$$ |$$ |  $$ |$$ /  $$ |         $$ |   $$ |  $$ |$$$$$$$$ |$$  _|      $$ |          $$  __$$ |$$ |  $$ |  $$ |    $$ /  $$ |")
     print("$$ |  $$ |$$ |     $$  __$$ |$$ |  $$ |$$ |  $$ |         $$ |   $$ |  $$ |$$   ____|$$ |        $$ |$$\       $$ |  $$ |$$ |  $$ |  $$ |$$\ $$ |  $$ |")
     print("\$$$$$$  |$$ |     \$$$$$$$ |$$ |  $$ |\$$$$$$$ |         $$ |   $$ |  $$ |\$$$$$$$\ $$ |        \$$$$  |      $$ |  $$ |\$$$$$$  |  \$$$$  |\$$$$$$  |")
-    print(" \______/ \|      \_______|\__|  \__| \_______|         \__|   \__|  \__| \_______|\__|         \____/       \__|  \__| \______/    \____/  \______/ \n")
+    print(" \______/ \__|      \_______|\__|  \__| \_______|         \__|   \__|  \__| \_______|\__|         \____/       \__|  \__| \______/    \____/  \______/ \n")
     pass
 
 def start_new_game():
@@ -70,10 +69,49 @@ def start_new_game():
     
     pass
 
-def load_saved_game():
-    game_name()
-    #chose_player()
-    pass
+cursor = con.cursor() 
+
+def select_to_dict(query: str, *args):
+    
+    cursor = con.cursor()  
+    cursor = con.cursor(cursor_factory=AS_DICT)
+    cursor.execute(query, args or ...)
+    return cursor.fetchall()
+
+def get_saves() -> list[str]:
+    return select_to_dict('SELECT nome,idJogador FROM Jogador')
+
+def choose_save() -> str:
+    global nomeJogadorAtual
+    saves = get_saves()
+
+    print('Selecione um save para carregar o jogo salvo.')
+
+    save = None
+    while not save:
+        i = 0
+        for i, save in enumerate(saves):
+            print(f'[{i}] - {save["nome"]}.')
+        print('\n[Q] - Voltar')
+        
+
+        value = input('\nDigite a opção escolhida: \n\n> ').strip().lower()
+        if value in saves:
+            save = value
+            cursor.execute('SELECT nome FROM Jogador WHERE idJogador =%s', [saves[value]['idjogador']])
+            nomeSave = cursor.fetchone()
+            nomeJogadorAtual = nomeSave[0]
+        elif value.isdigit():
+            value = int(value)
+            cursor.execute('SELECT nome FROM Jogador WHERE idJogador =%s', [saves[value]['idjogador']])
+            nomeSave = cursor.fetchone()
+            nomeJogadorAtual = nomeSave[0]
+        elif value == 'q':
+            return game_menu(); 
+        else:
+            print('Save não encontrado.\n')
+
+    return save
 
 def game_tutorial():
     game_name()
@@ -91,12 +129,12 @@ def quit_game():
     sys.exit()
     pass
 
-def save_name(name: str) -> None: 
+def save_name(name: str) -> None:
     global nomeJogadorAtual
     nomeJogadorAtual = name
     with con:
         with con.cursor() as cursor:
-            cursor.execute('INSERT INTO Jogador ( nome, vida, dinheiro, nivelProcurado, xp, idVeiculo, idNPC, idArea, idtarefa ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s,%s);', [(name), 100, 0, 0, 0, 1, 100, 1,0])
+            cursor.execute('INSERT INTO Jogador ( nome, vida, dinheiro, nivelProcurado, xp, idVeiculo, idNPC, idArea, idtarefa ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s,%s);', [(name), 100, 50, 0, 0, 1, 100, 1,0])
     
 def create_player() -> str:
     print("Bem vindo ao GTA!")
@@ -110,7 +148,6 @@ def create_player() -> str:
     return {'nome' : name}
 
 game_menu()
-
 
 def idJogadorAtual(nomeJogadorAtual):
     cursor = con.cursor()
@@ -176,6 +213,7 @@ def choseGun():
         print("----------------------------")
         print("Você não possui nem um item!")
         print("----------------------------")
+        return seuDano 
 
 def enemyOnArea():
     contPolice = 0
@@ -238,7 +276,9 @@ def fight(action,escolha):
             vidaInimigo = cursor.fetchone()
             vidaInimigo = int(vidaInimigo[0])
         else:
-            return print("Você esta sozinho nessa area!")
+            return print("------------------------------\n"
+                        "Você esta sozinho nessa area!\n"
+                        "------------------------------")
         
         while escolha  != '0':
             print('0 - Fugir da Briga!')
@@ -271,6 +311,54 @@ def fight(action,escolha):
                 #cursor.execute('UPDATE Jogador SET vida = %s WHERE idJogado=%s', [vidaInimigo,areaAll[0]])
             if escolha == '2':
                 seuDano = choseGun()
+
+def foodStore(action, escolha):
+    itemsLoja = []
+    nomeItemLoja = []
+    cont = 1
+    dinheiro = 0
+
+    cursor.execute('SELECT nomeLoja FROM Loja WHERE idArea = %s', str(idAreaJogador()))
+    nomeLoja = cursor.fetchone()
+    nomeLoja = str(nomeLoja[0])
+    print(f'Você entrou na loja {nomeLoja}')
+    nomeDaLoja ="Chill and Buy"
+    cursor.execute(f'SELECT * FROM Loja_possui_Item')
+    tuplaLoja = cursor.fetchall()
+    for z in range(0,len(tuplaLoja)):
+        if tuplaLoja[z][0] == 'Chill and Buy':
+            itemsLoja.append(tuplaLoja[z][1])
+
+    for index in itemsLoja:
+        cursor.execute(f'SELECT idItem, preco,nome,descricao FROM comida WHERE idItem = {index}')
+        nomeItemLoja.append(cursor.fetchone())
+
+    print(f'Bem vindo a {nomeLoja}, de uma olhada no nosso catalogo!')
+    print(nomeItemLoja)
+    for index in nomeItemLoja:
+        print(f'{cont}) Item: {index[2]} | Preço: R${index[1]},00 | Descrição: {index[3]} ' )
+        cont += 1 
+    
+    
+    dinheiro = checkMoney()
+    print(f'Você possui: R$ {dinheiro},00')
+    compra = input("Por favor ESCREVA o que deseja comprar:")
+    for index in nomeItemLoja:
+        if compra == index[2]:
+            if dinheiro >= index[0]:
+                print(index,"Analise")
+                dinheiro -= int(index[0])
+                cursor.execute('UPDATE Jogador SET dinheiro = %s WHERE idJogador = %s', [dinheiro, idJogadorAtual(nomeJogadorAtual)])
+                
+                cursor.execute(f'DELETE FROM Inventario WHERE idInventario = 8') #Para não ter que fixar mudando toda vez que executar, tocar Id para auto incre
+                cursor.execute(f'INSERT INTO Inventario VALUES ({idJogadorAtual(nomeJogadorAtual)}, {index[2]})')
+                print("-----------------------------------------------")
+                print(f'Parabens pela compra! Aqui está sua {index[0]}') 
+                print("-----------------------------------------------")       
+            else:
+                print("------------------------------------")
+                print("Você não possui dinheiro sufuciente!")
+                print("------------------------------------")
 
 def store(action, escolha):
     itemsLoja = []
@@ -307,11 +395,12 @@ def store(action, escolha):
                 print(index,"Analise")
                 dinheiro -= int(index[0])
                 cursor.execute('UPDATE Jogador SET dinheiro = %s WHERE idJogador = %s', [dinheiro, idJogadorAtual(nomeJogadorAtual)])
+                print("idJoagdor",idJogadorAtual(nomeJogadorAtual))
+                #cursor.execute(f'DELETE FROM Inventario WHERE idInventario = 8') #Para não ter que fixar mudando toda vez que executar, tocar Id para auto incre
+                cursor.execute(f'INSERT INTO Inventario VALUES ({idJogadorAtual(nomeJogadorAtual)},{idJogadorAtual(nomeJogadorAtual)}, {index[2]})')
                 
-                cursor.execute(f'DELETE FROM Inventario WHERE idInventario = 8') #Para não ter que fixar mudando toda vez que executar, tocar Id para auto incre
-                cursor.execute(f'INSERT INTO Inventario VALUES ({idJogadorAtual(nomeJogadorAtual)}, {index[2]})')
                 print("-----------------------------------------------")
-                print(f'Parabens pela compra! Aqui está sua {index[0]}') 
+                print(f'Parabens pela compra! Aqui está sua {index[1]}') 
                 print("-----------------------------------------------")       
             else:
                 print("------------------------------------")
@@ -349,7 +438,7 @@ def mostraQuest():
 
 
 print('--------------------------------------------------------------------')      
-print(f'Bem vindo a GTA! VC esta jogando com Jogador {nomeJogadorAtual}\n\n')
+print(f'Bem vindo a GTA! VC esta jogando com Jogador {nomeJogadorAtual}')
 print('--------------------------------------------------------------------')
 
 while action  != '0':
@@ -402,6 +491,11 @@ while action  != '0':
                 else:
                     action = 0
         elif action == '3':
-            store(action, escolha)
+            areaAtual = idAreaJogador()
+            if areaAtual == 1:
+                foodStore(action, escolha)
+            elif areaAtual == 6:
+                store(action, escolha)
+                
 
 con.close()
