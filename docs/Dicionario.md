@@ -29,6 +29,8 @@
 | ----------------- | ------------ | ------- | ------- | --------------------------------------------- | ---------- |
 | idItem            | Determinante | int     | 1       | Identificação do item                         | 1          |
 | tipo              | Simples      | varchar | 20      | Qual o tipo de comida a ser utilizada         | Feijuca    |
+| Nome              | Simples      | varchar | 20      | Qual o tipo de comida a ser utilizada         | Feijuca    |
+| Preço             | Simples      | int     | 3       | Qual o valor da comida                        | 2          |
 | descricao         | Simples      | varchar | 50      | Detalhamento das características da comida    | Consumível |
 | txRecuperaçãoVida | Simples      | int     | 2       | Quantidade de pontos de vida a ser recuperado | 35         |
 
@@ -51,7 +53,7 @@
 | Atributo     | Classe       | Tipo | Tamanho | Descrição                          | Exemplo |
 | ------------ | ------------ | ---- | ------- | ---------------------------------- | ------- |
 | idInventário | Determinante | int  | 1       | Identificação do inventário        | 1       |
-| dinheiro     | Simples      | int  | 3       | valor que pode ser usado nas lojas | 10      |
+| idJogador    | Determinante | int  | 1       | Identificação do Jogador           | 1       |
 
 ## Jogador
 #### Personagem criado pelo usuário.
@@ -61,6 +63,12 @@
 | idJogador | Determinante | int     | 1       | Identificação do Jogador         | 1       |
 | nome      | Simples      | varchar | 30      | Nome do Jogador                  | Jack    |
 | vida      | Simples      | int     | 3       | Pontos de vida do Jogador        | 100     |
+| xp        | Simples      | int     | 3       | Pontos de experiência do Jogador | 100     |
+| dinheiro        | Simples      | int     | 3       | Pontos de experiência do Jogador | 100     |
+| nivel procurado        | Simples      | int     | 3       | Pontos de experiência do Jogador | 100     |
+| idVeiculo         | Determinante | int     | 1                        | Identificação do Veiculo             | 1         |
+| idNPC    | Determinante | int  | 3       | Identificação do NPC                | 100     |
+| idArea    | Determinante | int     | 1       | Identificação da área                             | 1          |
 | xp        | Simples      | int     | 3       | Pontos de experiência do Jogador | 100     |
 
 ## Loja
@@ -80,7 +88,6 @@
 | Atributo  | Classe       | Tipo    | Tamanho | Descrição                                | Exemplo          |
 | --------- | ------------ | ------- | ------- | ---------------------------------------- | ---------------- |
 | idMapa    | Determinante | int     | 1       | Identificação do mapa                    | 1                |
-| idArea    | Determinante | int     | 1       | Chave estrangeira para a Área            | 1                |
 | descrição | Simples      | varchar | 50      | Detalhamento das características do mapa | centro da cidade |
 
 
@@ -91,7 +98,7 @@
 | ---------- | ------------ | ---- | ------- | ------------------------------------------ | ------- |
 | idNPC      | Determinante | int  | 3       | Chave estrangeira para o NPC               | 100     |
 | tipoAliado | Simples      | int  | 3       | Identificação como membro de gangue aliada | 100     |
-
+| vida     | Simples      | int  | 3       | Quantidade de vida que o NPC possui | 100     |
 
 ## Membro de gangue inimiga
 #### Personagens não jogável que faz parte de uma gangue inimiga.
@@ -100,6 +107,7 @@
 | ----------- | ------------ | ---- | ------- | ------------------------------------------- | ------- |
 | idNPC       | Determinante | int  | 3       | Chave estrangeira para o NPC                | 200     |
 | tipoInimigo | Simples      | int  | 3       | Identificação como membro de gangue inimiga | 200     |
+| vida     | Simples      | int  | 3       | Quantidade de vida que o NPC possui | 100     |
 
 
 ## Policial
@@ -108,7 +116,9 @@
 | Atributo | Classe  | Tipo    | Tamanho | Descrição                        | Exemplo |
 | -------- | ------- | ------- | ------- | -------------------------------- | ------- |
 | idNPC    | simples | int     | 3       | Chave estrangeira para o NPC     | 300     |
-| tipo     | simples | varchar | 1       | nível de dificuldade do policial | 1       |
+| tipoPolicial     | simples | varchar | 1       | nível de dificuldade do policial | 1       |
+| vida     | Simples      | int  | 3       | Quantidade de vida que o NPC possui | 100     |
+| DanoPolicial     | Simples      | int  | 3       | Quantidade de dano do policial | 100     |
 
 
 ## NPC
@@ -118,6 +128,9 @@
 | -------- | ------------ | ---- | ------- | ----------------------------------- | ------- |
 | idNPC    | Determinante | int  | 3       | Identificação do NPC                | 100     |
 | vida     | Simples      | int  | 3       | Quantidade de vida que o NPC possui | 100     |
+| tipo    | simples | varchar | 30       | Tipo de pessoa | policial       |
+| vida     | Simples      | int  | 3       | Quantidade de vida que o NPC possui | 100     |
+
 
 
 ## Tarefa
@@ -125,8 +138,9 @@
 
 | Atributo    | Classe       | Tipo    | Tamanho | Descrição                                   | Exemplo               |
 | ----------- | ------------ | ------- | ------- | ------------------------------------------- | --------------------- |
+| idTarefa    | Determinante | int     | 1       | Identificação da área                             | 1          |
 | nomeTarefa  | Determinante | varchar | 20      | Identificação da Tarefa                     | primeiras passos      |
-| idJogador   | Determinante | int     | 1       | Identificação do jogador que pegou a tarefa | 1                     |
+| xp          | Simples      | int     | 3       | Pontos de experiência da tarefa | 100     |
 | idNPC       | Determinante | int     | 3       | Identificação do NPC que delegou a tarefa   | 100                   |
 | objetivo    | Simples      | varchar | 50      | Descreve a tarefa                           | consiga uma bicicleta |
 | dificuldade | Simples      | int     | 1       | nível de dificuldade                        | 1                     |
@@ -139,7 +153,7 @@
 | ----------------- | ------------ | ------- | ------------------------ | ------------------------------------ | --------- |
 | idVeiculo         | Determinante | int     | 1                        | Identificação do Veiculo             | 1         |
 | tipo              | Simples      | varchar | 20                       | Tipo do Veiculo                      | bicicleta |
-| integridadeFísica | int          | 2       | Estado físico do veículo | 20                                   |           |
+| idarea            | Simples      | int     | 1                         |Área do veículo                      | 1         |
 | velocidadeMax     | Simples      | int     | 10                       | Rapidez em que o Veiculo se locomove | 4         |
 
 ## Item
@@ -147,10 +161,28 @@
 | Atributo     | Classe       | Tipo    | Tamanho | Descrição                           | Exemplo                   |
 | ------------ | ------------ | ------- | ------- | ----------------------------------- | ------------------------- |
 | idItem       | Determinante | int     | 1       | Identificação do item               | 1                         |
-| idInventario | Determinante | int     | 1       | Chave estrangeira para o inventário | 1                         |
 | usado        | Simples      | boolean | 1       | Indica se o item está usado ou não  | 1                         |
 | tipo         | Simples      | varchar | 10      | Tipo do item, ex: arma, comida, etc | Bebida ForLife            |
 | descricao    | Simples      | varchar | 30      | Descreve o item                     | aumenta a vida do jogador |
+
+
+## Jogador_has_Tarefas
+#### Qual tarefa o jogador tem
+| Atributo     | Classe       | Tipo    | Tamanho | Descrição                           | Exemplo                   |
+| ------------ | ------------ | ------- | ------- | ----------------------------------- | ------------------------- |
+| idJogador | Determinante | int     | 1       | Identificação do Jogador         | 1       |
+| nomeTarefa  | Determinante | varchar | 20      | Identificação da Tarefa                     | primeiras passos      |
+| idNPC    | Determinante | int  | 3       | Identificação do NPC                | 100     |
+
+## AreaCArea
+#### Qual área conecta em qual área
+| ida1    | Determinante | int     | 1       | Identificação da área principal                             | 1          |
+| ia2    | Determinante | int     | 1       | Identificação da área conectada à area principal                            | 1          |
+
+## LojaPossuiItem
+#### Qual item é vendido por qual loja
+| idItem       | Determinante | int     | 1       | Identificação do item               | 1                         |
+| NomeLoja       | Determinante | varchar     | 50       | Identificação da loja que vende o item             | 1                         |
 
 
 ## Histórico de versões
@@ -167,4 +199,5 @@
 | 15/01/2023 |  2.0   | Correções conforme observações do professor |  Letícia  |
 | 16/01/2023 |  2.1   |             Ajuste das tabelas              |   Davi    |
 | 16/01/2023 |  2.2   |             Correção das tabelas            |   Letícia |
+| 05/02/2023 |  2.2   |             Correção das tabelas            |  Todos    |
 
