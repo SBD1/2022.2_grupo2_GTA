@@ -134,7 +134,7 @@ def save_name(name: str) -> None:
     nomeJogadorAtual = name
     with con:
         with con.cursor() as cursor:
-            cursor.execute('INSERT INTO Jogador ( nome, vida, dinheiro, nivelProcurado, xp, idVeiculo, idNPC, idArea, idtarefa ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s,%s);', [(name), 100, 50, 0, 0, 1, 100, 1,0])
+            cursor.execute('INSERT INTO Jogador ( nome, vida, dinheiro, nivelProcurado, xp, idVeiculo, idNPC, idArea, idtarefa ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s,%s);', [(name), 100, 100, 0, 0, 1, 100, 1,0])
     
 def create_player() -> str:
     print("Bem vindo ao GTA!")
@@ -397,8 +397,10 @@ def store(action, escolha):
                 cursor.execute('UPDATE Jogador SET dinheiro = %s WHERE idJogador = %s', [dinheiro, idJogadorAtual(nomeJogadorAtual)])
                 print("idJoagdor",idJogadorAtual(nomeJogadorAtual))
                 #cursor.execute(f'DELETE FROM Inventario WHERE idInventario = 8') #Para não ter que fixar mudando toda vez que executar, tocar Id para auto incre
-                cursor.execute(f'INSERT INTO Inventario VALUES ({idJogadorAtual(nomeJogadorAtual)},{idJogadorAtual(nomeJogadorAtual)}, {index[2]})')
-                
+                cursor.execute('SELECT * FROM Inventario')
+                qtIds = cursor.fetchall()
+                qtdIds = len(qtIds)
+                cursor.execute(f'INSERT INTO Inventario VALUES ({qtdIds + 1},{idJogadorAtual(nomeJogadorAtual)}, {index[2]})')
                 print("-----------------------------------------------")
                 print(f'Parabens pela compra! Aqui está sua {index[1]}') 
                 print("-----------------------------------------------")       
