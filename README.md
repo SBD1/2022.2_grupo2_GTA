@@ -13,12 +13,17 @@
 
 O presente repositório tem como objetivo o desenvolvimento de um jogo inspirado no Grand Theft Auto (GTA), de modo a criar diagramas e modelos com o fito projetar e, por fim, desenvolver um sistema de banco de dados aplicando conhecimentos adquiridos na disciplina de Sistema de Banco de Dados 1 2022.2 da Universidade de Brasília - FGA.
 
+# Screenshots
+
+![image](https://user-images.githubusercontent.com/72623771/217127121-4b992785-df53-49dc-92c0-b0b80c4b9c63.png)
 
 ## Apresentações
 
 [Apresentação do Módulo 1](https://drive.google.com/file/d/1H3PqMpnf0POw6dFDDYKTpEEZzNRWQES9/view?usp=sharing) <br>
 [Apresentação do Módulo 2](https://drive.google.com/file/d/1X6HQQpA2z56oxkmlpqWv4WfQUgN8Jf5t/view?usp=sharing) <br>
-[Apresentação do Módulo 3](https://drive.google.com/file/d/1secMGUwf3kz5fcAfqnvidgU1uXg8ojkI/view?usp=sharing)
+[Apresentação do Módulo 3](https://drive.google.com/file/d/1secMGUwf3kz5fcAfqnvidgU1uXg8ojkI/view?usp=sharing) <br>
+[Apresentação do Módulo 4](https://drive.google.com/file/d/1ptT1SZv0aGrtmo3Mfhr3u59-KomGnP1Y/view?usp=share_link)
+
 
 ## Entregas
 
@@ -35,18 +40,28 @@ O presente repositório tem como objetivo o desenvolvimento de um jogo inspirado
 - Módulo 3
    - [Game](game)
 
+## Instalação
 
-## Tutorial
+### Pré-requisitos: 
+* PgAdmin4
+* Python 
 
-- Pré-requisitos: ter o pgAdmin4 e Python instalados, o repositório do trabalho e uma IDE no seu computador com o pacote do psycopg2 instalado no diretório do trabalho (pip install psycopg2 pelo terminal);
+## Tutorial:
 
-<ol>
-  <li>Crie uma database no Pgadmin4 chamada "gta";</li>
-  <li>Dê acesso ao usuário "postgres" e coloque a senha "postgres";</li>
-  <li>Clicando na base criada, selecione a aba "tools" e clique em "Query tools";</li>
-  <li>No painel "Query", abra cada um dos arquivos de extensão ".sql", e os execute usando F5;</li>
-  <li>Abra a IDE, e execute o arquivo "Jogo.py";</li>
-</ol>
+1- Instalar [Python](https://www.python.org/);<br>
+2- Instalar o [PgAdmin](https://www.pgadmin.org/);<br>
+3- Clonar o presente repositório;<br>
+
+4- Instalar o pacote psycopg2;<br>
+````
+pip install psycopg2
+````
+5- Crie uma database no Pgadmin4 chamada "gta";<br>
+6- Dê acesso ao usuário "postgres" e coloque a senha "postgres";<br>
+7- Clicando na base criada, selecione a aba "tools" e clique em "Query tools";<br>
+8- No painel "Query", abra cada um dos arquivos de extensão ".sql", e os execute usando F5;<br>
+9- Abra a IDE, e execute o arquivo "Jogo.py";<br>
+
 
 
 ## Colaboradores
