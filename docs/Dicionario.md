@@ -6,8 +6,6 @@
 | Atributo  | Classe       | Tipo    | Tamanho | Descrição                                         | Exemplo    |
 | --------- | ------------ | ------- | ------- | ------------------------------------------------- | ---------- |
 | idArea    | Determinante | int     | 1       | Identificação da área                             | 1          |
-| idVeiculo | Determinante | int     | 1       | Chave estrangeira para o veículo presente na área | 1          |
-| idNPC     | Determinante | int     | 3       | Chave estrangeira para o NPC presente na área     | 1          |
 | descrição | Simples      | varchar | 50      | Detalhamento das características da área          | Zona norte |
 
 
@@ -17,6 +15,7 @@
 | Atributo  | Classe       | Tipo    | Tamanho | Descrição                                | Exemplo                      |
 | --------- | ------------ | ------- | ------- | ---------------------------------------- | ---------------------------- |
 | idItem    | Determinante | int     | 1       | Identificação do item                    | 1                            |
+| preço     | Simples      | int     | 3       | Valor da arma                            | 10                           |
 | tipo      | Simples      | varchar | 20      | Qual o modelo da arma utilizada          | AK-47                        |
 | descricao | Simples      | varchar | 50      | Detalhamento das características da arma | arma de disparos automáticos |
 | qtdDano   | Determinante | int     | 3       | Quantidade de dano que a Arma causa      | 70                           |
