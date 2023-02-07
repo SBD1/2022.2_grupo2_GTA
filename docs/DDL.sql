@@ -1,3 +1,8 @@
+-- Table Save
+CREATE TABLE IF NOT EXISTS save (
+    nome VARCHAR(30) NOT NULL,
+    PRIMARY KEY(nome));
+
 -- Table Area
 
 CREATE TABLE IF NOT EXISTS Area (
@@ -129,7 +134,9 @@ CREATE TABLE IF NOT EXISTS Arma (
 
 CREATE TABLE IF NOT EXISTS Comida (
   idItem INT NOT NULL,
+  nome VARCHAR(20) NULL,
   descricao VARCHAR(50) NULL,
+  preco INT NULL,
   tipo VARCHAR(20) NULL,
   txRecuperacaoVida INT NULL,
   
