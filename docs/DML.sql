@@ -1,5 +1,3 @@
-/* linguagem de manipulação de dados */
-
 INSERT INTO area (idArea, descricao)
 VALUES
 (1, 'Centro da cidade'),
@@ -14,7 +12,7 @@ VALUES
 
 INSERT INTO item (idItem, descricao, usado, tipo)
 VALUES
-(10, 'heroína -> + dano causado, - vida', 0,  'droga'),
+(10, 'heroína, + dano causado, - vida', 0,  'droga'),
 (11, 'morfina -> + vida máxima, - dano causado', 0, 'droga'),
 (12, 'maconha -> + vida máxima, ilusões', 0, 'droga'),
 (13, 'ritalina -> + velocidade, - dano causado', 0, 'droga'),
@@ -39,13 +37,13 @@ VALUES
 (13, 'ritalina -> + velocidade, - dano causado', 'droga','+15% speed', '-15% dano'),
 (14, 'craque -> + dano causado, - vida', 'droga','+25% dano', '-25HP');
 
-INSERT INTO comida(idItem, descricao, tipo, txRecuperacaoVida)
+INSERT INTO comida(idItem,nome,descricao,preco, tipo, txRecuperacaoVida)
 VALUES
-(20, 'Suco Dolly -> recupera pouca vida', 'Comida', 25),
-(21, 'Hamburguer -> recupera qtd media de vida', 'Comida', 50),
-(22, 'Frango -> recupera muita vida', 'Comida', 80),
-(23, 'fritas -> recupera muito pouca vida', 'Comida', 10),
-(24, 'pizza -> cura toda vida', 'Comida', 100);
+(20, 'Suco Dolly', 'recupera pouca vida',2, 'Comida', 25),
+(21, 'Hamburguer', 'recupera qtd media de vida',5 ,'Comida', 50),
+(22, 'Frango', 'recupera muita vida',10 ,'Comida', 80),
+(23, 'fritas', 'recupera muito pouca vida',3 ,'Comida', 10),
+(24, 'pizza', 'cura toda vida',12 ,'Comida', 100);
 
 INSERT INTO arma(idItem, descricao, preco, tipo, qtdDano, qtdBalas)
 VALUES
@@ -202,4 +200,26 @@ VALUES
 ('Happy and Guns',32),
 ('Happy and Guns',33),
 ('Happy and Guns',34),
-('Happy and Guns',35);
+('Happy and Guns',35),
+('Chill and Buy',20),
+('Chill and Buy',21),
+('Chill and Buy',22),
+('Chill and Buy',23),
+('Chill and Buy',24);
+
+
+SELECT * FROM Jogador;
+
+SELECT * FROM Arma;
+SELECT * FROM Save;
+SELECT * FROM Comida;
+SELECT * FROM NPC;
+SELECT * FROM Inventario;
+SELECT * FROM Jogador;
+SELECT * FROM Item;
+SELECT * FROM Area;
+SELECT * FROM Policial;
+SELECT * FROM loja;
+SELECT * FROM Loja_possui_Item;
+SELECT idItem FROM Loja_possui_Item WHERE nomeLoja = 'Happy and Guns'
+	
