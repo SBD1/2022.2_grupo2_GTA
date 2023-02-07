@@ -177,12 +177,16 @@
 
 ## AreaCArea
 #### Qual área conecta em qual área
+| Atributo     | Classe       | Tipo    | Tamanho | Descrição                           | Exemplo                   |
+| ------------ | ------------ | ------- | ------- | ----------------------------------- | ------------------------- |
 | ida1    | Determinante | int     | 1       | Identificação da área principal                             | 1          |
-| ia2    | Determinante | int     | 1       | Identificação da área conectada à area principal                            | 1          |
+| ia2    | Determinante | int     | 1       | Identificação da área conectada à area principal      | 1          |
 
 
 ## LojaPossuiItem
 #### Qual item é vendido por qual loja
+| Atributo     | Classe       | Tipo    | Tamanho | Descrição                           | Exemplo                   |
+| ------------ | ------------ | ------- | ------- | ----------------------------------- | ------------------------- |
 | idItem       | Determinante | int     | 1       | Identificação do item               | 1                         |
 | NomeLoja       | Determinante | varchar     | 50       | Identificação da loja que vende o item             | 1                         |
 
