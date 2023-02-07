@@ -174,10 +174,12 @@
 | nomeTarefa  | Determinante | varchar | 20      | Identificação da Tarefa                     | primeiras passos      |
 | idNPC    | Determinante | int  | 3       | Identificação do NPC                | 100     |
 
+
 ## AreaCArea
 #### Qual área conecta em qual área
 | ida1    | Determinante | int     | 1       | Identificação da área principal                             | 1          |
 | ia2    | Determinante | int     | 1       | Identificação da área conectada à area principal                            | 1          |
+
 
 ## LojaPossuiItem
 #### Qual item é vendido por qual loja
