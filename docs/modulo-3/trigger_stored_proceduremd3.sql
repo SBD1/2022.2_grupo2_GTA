@@ -60,3 +60,45 @@ END;
  CREATE TRIGGER check_atributos_jogador
  AFTER UPDATE ON Jogador
  FOR EACH ROW EXECUTE PROCEDURE check_atributos_jogador();
+ 
+--------------------------------------------------------------------------------------------- 
+ --- TRIGGERS PARA POLICIAL
+ 
+CREATE OR REPLACE FUNCTION check_vida_policial() RETURNS trigger AS $check_vida_policial$
+BEGIN
+
+  IF NEW.vida <= 0 THEN
+    RAISE NOTICE 'Você matou o inimigo!';
+    
+  END IF;
+
+  IF NEW.vida <= 0 THEN
+    UPDATE Policial SET vida = 100 WHERE idNPC = NEW.idNPC;
+
+  END IF;
+
+  IF NEW.vida <= 0 THEN
+    UPDATE Policial SET idArea = 4 WHERE idNPC = NEW.idNPC;
+    UPDATE Jogador SET nivelProcurado ++1 WHERE idJogador = NEW.idNPC;
+    RAISE NOTICE 'Seu nivel de proucurado é' nivelProcurado;
+  END IF;
+ 
+ IF NEW.vida <= 0 THEN
+    UPDATE Jogador SET nivelProcurado ++1 WHERE idJogador = NEW.idNPC;
+
+  END IF;
+  
+  IF NEW.vida <= 0 THEN
+    RAISE NOTICE 'Seu nivel de proucurado é' nivelProcurado;
+    
+  END IF;
+
+  
+
+  RETURN NULL;
+END;
+$check_vida_policial$ LANGUAGE plpgsql;
+
+CREATE TRIGGER check_vida_policial
+AFTER UPDATE ON policial
+FOR EACH ROW EXECUTE PROCEDURE check_vida_policial();
